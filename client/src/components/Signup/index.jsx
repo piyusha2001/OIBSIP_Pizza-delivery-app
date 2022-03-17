@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import axios from 'axios';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import styles from './styles.css';
+import styles from './styles.module.css';
 
 const Signup = () => {
 	const [data, setData] = useState({
@@ -92,7 +92,7 @@ const Signup = () => {
 							<div className={styles.error_msg}>{error}</div>
 						)}
 						<button type='submit' className={styles.green_btn}>
-							Sing Up
+							Sign Up
 						</button>
 					</form>
 				</div>
