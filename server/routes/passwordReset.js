@@ -29,6 +29,13 @@ router.post('/', async (req, res) => {
 				token: crypto.randomBytes(32).toString('hex'),
 			}).save();
 		}
+
+		const url = `${process.env.BASE_URL}password-reset/${user._id}/${token.token}/`;
+		await sendEmail(user.email, 'Password Reset', url);
+
+		res.status(200).send({
+			message: 'Password reset link sent to your email account',
+		});
 	} catch (error) {
 		res.status(500).send({ message: 'Internal Server Error' });
 	}
