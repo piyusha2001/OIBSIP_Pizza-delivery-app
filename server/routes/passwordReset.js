@@ -76,6 +76,8 @@ router.post('/:id/:token', async (req, res) => {
 			token: req.params.token,
 		});
 		if (!token) return res.status(400).send({ message: 'Invalid link' });
+
+		if (!user.verified) user.verified = true;
 	} catch (error) {
 		res.status(500).send({ message: 'Internal Server Error' });
 	}
