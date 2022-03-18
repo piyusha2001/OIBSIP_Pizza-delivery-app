@@ -67,6 +67,9 @@ router.post('/:id/:token', async (req, res) => {
 		const { error } = passwordSchema.validate(req.body);
 		if (error)
 			return res.status(400).send({ message: error.details[0].message });
+
+		const user = await User.findOne({ _id: req.params.id });
+		if (!user) return res.status(400).send({ message: 'Invalid link' });
 	} catch (error) {
 		res.status(500).send({ message: 'Internal Server Error' });
 	}
