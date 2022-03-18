@@ -1,28 +1,28 @@
-import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { Fragment } from 'react/cjs/react.production.min';
 import success from '../../images/success.png';
 import styles from './styles.module.css';
-import { Fragment } from 'react/cjs/react.production.min';
 
 const EmailVerify = () => {
 	const [validUrl, setValidUrl] = useState(true);
-	const param = useParams();
+	const { id, token } = useParams();
 
 	useEffect(() => {
-		const verifyEmailUrl = async () => {
-			try {
-				const url = `http://localhost:8080/api/users/${param.id}/verify/${param.token}`;
+		return async () => {
+			if (id && token) {
+				const url = `http://localhost:8080/api/users/${id}/verify/${token}`;
 				const { data } = await axios.get(url);
-				console.log(data);
-				setValidUrl(true);
-			} catch (error) {
-				console.log(error);
-				setValidUrl(false);
+				if (data?.success) {
+					alert(data?.message);
+					setValidUrl(true);
+				} else {
+					setValidUrl(false);
+				}
 			}
 		};
-		verifyEmailUrl();
-	}, [param]);
+	}, [id, token]);
 
 	return (
 		<Fragment>
