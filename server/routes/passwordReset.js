@@ -59,4 +59,17 @@ router.get('/:id/:token', async (req, res) => {
 	}
 });
 
+router.post('/:id/:token', async (req, res) => {
+	try {
+		const passwordSchema = Joi.object({
+			password: passwordComplexity().required().label('Password'),
+		});
+		const { error } = passwordSchema.validate(req.body);
+		if (error)
+			return res.status(400).send({ message: error.details[0].message });
+	} catch (error) {
+		res.status(500).send({ message: 'Internal Server Error' });
+	}
+});
+
 module.exports = router;
