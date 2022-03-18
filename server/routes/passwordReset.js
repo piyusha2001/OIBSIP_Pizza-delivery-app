@@ -59,6 +59,7 @@ router.get('/:id/:token', async (req, res) => {
 	}
 });
 
+//password reset logic
 router.post('/:id/:token', async (req, res) => {
 	try {
 		const passwordSchema = Joi.object({
