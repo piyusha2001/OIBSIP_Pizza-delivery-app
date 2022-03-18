@@ -15,6 +15,12 @@ router.post('/', async (req, res) => {
 		const { error } = emailSchema.validate(req.body);
 		if (error)
 			return res.status(400).send({ message: error.details[0].message });
+
+		let user = await User.findOne({ email: req.body.email });
+		if (!user)
+			return res
+				.status(409)
+				.send({ message: 'User with given email does not exist!' });
 	} catch (error) {
 		res.status(500).send({ message: 'Internal Server Error' });
 	}
