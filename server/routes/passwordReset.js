@@ -78,6 +78,15 @@ router.post('/:id/:token', async (req, res) => {
 		if (!token) return res.status(400).send({ message: 'Invalid link' });
 
 		if (!user.verified) user.verified = true;
+
+		const salt = await bcrypt.genSalt(Number(process.env.SALT));
+		const hashPassword = await bcrypt.hash(req.body.password, salt);
+
+		user.password = hashPassword;
+		await user.save();
+		await token.remove();
+
+		res.status(200).send({ message: 'Password reset successfully' });
 	} catch (error) {
 		res.status(500).send({ message: 'Internal Server Error' });
 	}
