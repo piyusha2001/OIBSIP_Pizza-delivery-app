@@ -21,6 +21,14 @@ router.post('/', async (req, res) => {
 			return res
 				.status(409)
 				.send({ message: 'User with given email does not exist!' });
+
+		let token = await Token.findOne({ userId: user._id });
+		if (!token) {
+			token = await new Token({
+				userId: user._id,
+				token: crypto.randomBytes(32).toString('hex'),
+			}).save();
+		}
 	} catch (error) {
 		res.status(500).send({ message: 'Internal Server Error' });
 	}
