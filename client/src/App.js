@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import EmailVerify from './Screens/EmailVerify';
 import ForgotPassword from './Screens/ForgotPassword';
+import Home from './Screens/Home';
 import Login from './Screens/Login';
 import Main from './Screens/Main';
 import PasswordReset from './Screens/PasswordReset';
@@ -20,6 +21,7 @@ function App() {
 				path='/password-reset/:id/:token'
 				element={<PasswordReset />}
 			/>
+			<Route path='/home' exact element={<Home />} />
 		</Routes>
 	);
 }
