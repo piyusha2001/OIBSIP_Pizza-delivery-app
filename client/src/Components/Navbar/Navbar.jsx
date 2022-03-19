@@ -3,11 +3,9 @@ import './styles.css';
 
 export default function navbar() {
 	return (
-		<nav class='navbar navbar-expand-lg navbar-dark custom-navbar'>
+		<nav class='navbar navbar-expand-lg navbar-dark custom-navbar  '>
 			<div class='container-fluid'>
-				<a class='navbar-brand' href='#'>
-					Navbar
-				</a>
+				<a class='navbar-brand'>Navbar</a>
 				<button
 					class='navbar-toggler'
 					type='button'
@@ -25,7 +23,7 @@ export default function navbar() {
 							<a
 								class='nav-link active '
 								aria-current='page'
-								href='#'
+								href='/login'
 							>
 								Login
 							</a>
