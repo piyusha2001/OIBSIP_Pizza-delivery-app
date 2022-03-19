@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-expressions
-[
+const pizzas = [
 	{
 		name: 'DELUXE VEGGIE',
 		varients: ['small', 'medium', 'large'],
@@ -88,3 +88,5 @@
 			'supreme delight of Black Olives Grilled Mushrooms, Pepper BBQ Chicken, , Grilled Chicken Rashers ',
 	},
 ];
+
+export default pizzas;
