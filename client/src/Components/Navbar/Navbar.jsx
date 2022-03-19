@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 
-export default function navbar() {
+export default function Navbar() {
 	return (
 		<nav class='navbar navbar-expand-lg navbar-dark custom-navbar  '>
 			<div class='container-fluid'>
