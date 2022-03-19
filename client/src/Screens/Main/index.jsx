@@ -1,4 +1,4 @@
-import { Flex, HStack, Text, VStack } from '@chakra-ui/react';
+import { Flex, HStack, VStack } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
 const Main = () => {
@@ -35,18 +35,6 @@ const Main = () => {
 							)}
 						</div>
 					</nav>
-				</HStack>
-
-				<HStack width='100%'>
-					<VStack width='100%'>
-						<Text
-							fontSize='4xl'
-							padding={3}
-							className={styles.heading1}
-						>
-							THE PARTY CAN'T START WITHOUT PIZZAAA!!
-						</Text>
-					</VStack>
 				</HStack>
 			</VStack>
 		</Flex>
