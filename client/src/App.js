@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import './index.css';
 import EmailVerify from './Screens/EmailVerify';
 import ForgotPassword from './Screens/ForgotPassword';
 import Home from './Screens/Home';
