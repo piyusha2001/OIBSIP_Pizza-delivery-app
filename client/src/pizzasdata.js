@@ -11,7 +11,7 @@ const pizzas = [
 			},
 		],
 		category: 'veg',
-		image: 'https://www.dominos.co.in/files/items/Deluxe_Veggie.jpg',
+		image: 'https://www.dominos.co.in/files/items/Farmhouse.jpg',
 		description:
 			'The onions, the capsicum, mushrooms - with paneer and golden corn to top it all',
 	},
@@ -26,7 +26,7 @@ const pizzas = [
 			},
 		],
 		category: 'veg',
-		image: 'https://www.dominos.co.in/files/items/IndianTandooriPaneer.jpg',
+		image: 'https://www.dominos.co.in/files/items/Deluxe_Veggie.jpg',
 		description:
 			'Paneer marinated with yummy tandoori sauce along with lots of cheese',
 	},
@@ -69,7 +69,7 @@ const pizzas = [
 			},
 		],
 		category: 'nonveg',
-		image: 'https://www.dominos.co.in/files/items/IndianChickenTikka.jpg',
+		image: 'https://www.dominos.co.in/files/items/Dominator.jpg',
 		description: 'Tandoori masala with Chicken tikka I onion I red paprika',
 	},
 	{
