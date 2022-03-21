@@ -1,31 +1,38 @@
 import { SimpleGrid } from '@chakra-ui/react';
-import React from 'react';
-import pizzas from '../../pizzasdata';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllPizzas } from '../../actions/pizzaActions';
 import Pizza from '../Pizza/Pizza';
-import '../PizzaDisplay/styles.css';
+import './styles.css';
 export default function PizzaDisplay() {
+	const dispatch = useDispatch();
+
+	const pizzastate = useSelector((state) => state.getAllPizzasReducer);
+
+	const { pizzas, error, loading } = pizzastate;
+
+	useEffect(() => {
+		dispatch(getAllPizzas());
+	}, []);
 	return (
 		<div>
-			{/* <div className='row'>
-				{pizzas.map((pizza) => {
-					return (
-						<div className='col-md-4'>
-							<Pizza pizza={pizza} />
-						</div>
-					);
-				})}
-			</div> */}
-			<SimpleGrid
-				columns={3}
-				marginLeft='80px'
-				marginTop='30px'
-				spacing={6}
-				minChildWidth='420px'
-			>
-				{pizzas.map((pizza) => {
-					return <Pizza pizza={pizza} />;
-				})}
-			</SimpleGrid>
+			{loading ? (
+				<h1>Loading</h1>
+			) : error ? (
+				<h1>Something went wrong</h1>
+			) : (
+				<SimpleGrid
+					columns={3}
+					marginLeft='80px'
+					marginTop='30px'
+					spacing={6}
+					minChildWidth='420px'
+				>
+					{pizzas.map((pizza) => {
+						return <Pizza pizza={pizza} />;
+					})}
+				</SimpleGrid>
+			)}
 		</div>
 	);
 }
