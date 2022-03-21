@@ -23,13 +23,13 @@ export default function PizzaDisplay() {
 			) : (
 				<SimpleGrid
 					columns={3}
-					marginLeft='80px'
-					marginTop='30px'
+					margin='50px '
 					spacing={6}
-					minChildWidth='420px'
+					marginLeft='100px'
+					minChildWidth='410px'
 				>
 					{pizzas.map((pizza) => {
-						return <Pizza pizza={pizza} />;
+						return <Pizza key={pizza._id} pizza={pizza} />;
 					})}
 				</SimpleGrid>
 			)}
