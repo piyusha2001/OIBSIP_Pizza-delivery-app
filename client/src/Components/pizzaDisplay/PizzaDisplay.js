@@ -19,7 +19,7 @@ export default function PizzaDisplay() {
 				columns={3}
 				marginLeft='80px'
 				marginTop='30px'
-				spacing={4}
+				spacing={6}
 				minChildWidth='420px'
 			>
 				{pizzas.map((pizza) => {
