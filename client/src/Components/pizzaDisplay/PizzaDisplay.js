@@ -20,6 +20,7 @@ export default function PizzaDisplay() {
 				marginLeft='80px'
 				marginTop='30px'
 				spacing={4}
+				minChildWidth='420px'
 			>
 				{pizzas.map((pizza) => {
 					return <Pizza pizza={pizza} />;
