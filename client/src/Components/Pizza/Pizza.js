@@ -11,17 +11,17 @@ export default function Pizza({ pizza }) {
 	return (
 		<>
 			<Box
-				onClick={handleShow}
 				boxShadow='lg'
 				maxW='sm'
 				borderWidth='1px'
 				borderRadius='lg'
 				overflow='hidden'
 			>
-				<Text textAlign='center' fontSize='3xl'>
+				<Text onClick={handleShow} textAlign='center' fontSize='3xl'>
 					{pizza.name}
 				</Text>
 				<Image
+					onClick={handleShow}
 					src={pizza.image}
 					width='200px'
 					height='200px'
