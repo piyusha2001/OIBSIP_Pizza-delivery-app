@@ -6,8 +6,8 @@ export const getAllPizzaS = () => (dispatch) => {
 	try {
 		const response = axios.get('localhost:8080/api/pizzas/getpizzas');
 		console.log(response);
-		dispatch({ type: 'GET_PIZZAS_SUCCESS' });
+		dispatch({ type: 'GET_PIZZAS_SUCCESS', payload: response.data });
 	} catch (error) {
-		dispatch({ type: 'GET_PIZZAS_FAILED' });
+		dispatch({ type: 'GET_PIZZAS_FAILED', payload: error });
 	}
 };
