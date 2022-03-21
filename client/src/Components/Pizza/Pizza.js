@@ -43,7 +43,9 @@ export default function Pizza({ pizza }) {
 						>
 							{pizza.varients.map((varient) => {
 								return (
-									<option value={varient}>{varient}</option>
+									<option key={varient} value={varient}>
+										{varient}
+									</option>
 								);
 							})}
 						</Select>
@@ -59,7 +61,11 @@ export default function Pizza({ pizza }) {
 							placeholder='Select '
 						>
 							{[...Array(10).keys()].map((x, i) => {
-								return <option value={i + 1}>{i + 1}</option>;
+								return (
+									<option key={i} value={i + 1}>
+										{i + 1}
+									</option>
+								);
 							})}
 						</Select>
 					</Box>
