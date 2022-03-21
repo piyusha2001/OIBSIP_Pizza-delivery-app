@@ -1,9 +1,8 @@
 import { Button, Flex } from '@chakra-ui/react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
-import '../../../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import Navbar from '../../Components/Navbar/Navbar';
 import './styles.module.css';
+
 const Main = () => {
 	// let navigate = useNavigate();
 	// const user = localStorage.getItem('token');
