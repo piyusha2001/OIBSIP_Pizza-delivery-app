@@ -10,7 +10,7 @@ import {
 import { Minus, Plus, Trash } from 'phosphor-react';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../actions/cartActions';
+import { addToCart, deleteFromCart } from '../../actions/cartActions';
 export default function CartOrders({ item }) {
 	const dispatch = useDispatch();
 	return (
@@ -76,7 +76,12 @@ export default function CartOrders({ item }) {
 					height='90px'
 					marginRight='10px'
 				/>
-				<Button size='small'>
+				<Button
+					onClick={() => {
+						dispatch(deleteFromCart(item));
+					}}
+					size='small'
+				>
 					<Trash size={23} color='#d11a2c' />
 				</Button>
 			</HStack>
