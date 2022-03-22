@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import './index.css';
+import CartScreen from './Screens/CartScreen/CartScreen';
 import EmailVerify from './Screens/EmailVerify';
 import ForgotPassword from './Screens/ForgotPassword';
 import Home from './Screens/Home';
@@ -25,6 +26,7 @@ function App() {
 				element={<PasswordReset />}
 			/>
 			<Route path='/home' exact element={<Home />} />
+			<Route path='/cart' exact element={<CartScreen />} />
 		</Routes>
 	);
 }
