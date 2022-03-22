@@ -1,7 +1,9 @@
+import { ShoppingCart } from 'phosphor-react';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import './styles.css';
-
 export default function Navbar() {
+	const cartstate = useSelector((state) => state.cartReducer);
 	return (
 		<nav class='navbar navbar-expand-lg navbar-dark custom-navbar  '>
 			<div class='container-fluid'>
@@ -30,7 +32,15 @@ export default function Navbar() {
 						</li>
 						<li class='nav-item '>
 							<a class='nav-link active ' href='#'>
-								Cart
+								<ShoppingCart size={32} color='#fefbfb' />
+							</a>
+						</li>
+						<li class='nav-item arrow '>
+							<a class='nav-link active'>Cart :</a>
+						</li>
+						<li class='nav-item'>
+							<a class='nav-link active ' href='#'>
+								{cartstate.cartItems.length}
 							</a>
 						</li>
 					</ul>
