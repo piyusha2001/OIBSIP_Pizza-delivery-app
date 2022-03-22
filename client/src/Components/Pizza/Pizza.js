@@ -1,13 +1,21 @@
 import { Box, Button, Image, Select, Text } from '@chakra-ui/react';
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from 'react-bootstrap';
+import { addToCart } from '../../actions/cartActions';
 export default function Pizza({ pizza }) {
 	const [show, setShow] = useState(false);
+	const [quantity, setQuantity] = useState(1);
+	const [varient, setVarient] = useState('small');
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
-	const [quantity, setQuantity] = useState(1);
-	const [varient, setVarient] = useState('small');
+
+	const dispatch = useDispatch();
+	function addtocart() {
+		dispatch(addToCart(pizza, quantity, varient));
+	}
+
 	return (
 		<>
 			<Box
@@ -82,6 +90,7 @@ export default function Pizza({ pizza }) {
 								backgroundColor='#b33030'
 								color='white'
 								_hover={{ bg: '#FF7272' }}
+								onClick={addtocart}
 							>
 								ADD TO CART
 							</Button>
