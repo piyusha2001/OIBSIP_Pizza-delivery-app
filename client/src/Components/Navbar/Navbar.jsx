@@ -1,4 +1,3 @@
-import { ShoppingCart } from 'phosphor-react';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './styles.css';
@@ -30,17 +29,9 @@ export default function Navbar() {
 								Login
 							</a>
 						</li>
-						<li class='nav-item '>
-							<a class='nav-link active ' href='#'>
-								<ShoppingCart size={32} color='#fefbfb' />
-							</a>
-						</li>
 						<li class='nav-item arrow '>
-							<a class='nav-link active'>Cart :</a>
-						</li>
-						<li class='nav-item'>
-							<a class='nav-link active ' href='#'>
-								{cartstate.cartItems.length}
+							<a class='nav-link active' href='/cart'>
+								Cart : {cartstate.cartItems.length}
 							</a>
 						</li>
 					</ul>
