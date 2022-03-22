@@ -9,7 +9,10 @@ import {
 } from '@chakra-ui/react';
 import { Minus, Plus, Trash } from 'phosphor-react';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../actions/cartActions';
 export default function CartOrders({ item }) {
+	const dispatch = useDispatch();
 	return (
 		<Box
 			width='60%'
@@ -17,7 +20,8 @@ export default function CartOrders({ item }) {
 			border='1px'
 			borderColor='#b33030'
 			borderRadius='25px'
-			padding='10px'
+			padding='27px'
+			marginRight='10px'
 		>
 			<HStack>
 				<VStack alignItems='flex-start'>
@@ -31,14 +35,37 @@ export default function CartOrders({ item }) {
 					</Text>
 					<HStack>
 						<Text fontSize='1xl'>Quantity :</Text>
-						<Button size='small'>
+						<Button
+							onClick={() => {
+								dispatch(
+									addToCart(
+										item,
+										item.quantity + 1,
+										item.varient,
+									),
+								);
+							}}
+							size='small'
+						>
 							<Plus size={23} color='#37ce2c' />
 						</Button>
 						<b>{item.quantity}</b>
-						<Button size='small'>
+						<Button
+							onClick={() => {
+								dispatch(
+									addToCart(
+										item,
+										item.quantity - 1,
+										item.varient,
+									),
+								);
+							}}
+							size='small'
+						>
 							<Minus size={23} color='#d11a2c' />
 						</Button>
 					</HStack>
+					<Text fontSize='1xl'>Description : {item.description}</Text>
 				</VStack>
 			</HStack>
 			<Spacer />
