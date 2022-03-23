@@ -11,11 +11,12 @@ const Main = () => {
 	// 	window.location.reload();
 	// };
 
+	const user = JSON.parse(localStorage.getItem('user'));
 	return (
 		<>
 			<Navbar />
 			<Flex justifyContent='center'>
-				<Link to='/home'>
+				<Link to={user?.email ? '/home' : '/login'}>
 					<Button margin={3} backgroundColor='#b33030' color='white'>
 						ORDER NOW
 					</Button>
