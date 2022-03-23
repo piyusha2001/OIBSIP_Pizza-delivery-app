@@ -23,51 +23,50 @@ export default function CartOrders({ item }) {
 			padding='27px'
 			marginRight='10px'
 		>
-			<HStack>
-				<VStack alignItems='flex-start'>
-					<HStack>
-						<Text fontSize='2xl'>{item.name}</Text>
-						<Text fontSize='1xl'>[{item.varient}]</Text>
-					</HStack>
-					<Text fontSize='1xl'>
-						Price : {item.quantity}*{item.prices[0][item.varient]} =
-						{item.price}
-					</Text>
-					<HStack>
-						<Text fontSize='1xl'>Quantity :</Text>
-						<Button
-							onClick={() => {
-								dispatch(
-									addToCart(
-										item,
-										item.quantity + 1,
-										item.varient,
-									),
-								);
-							}}
-							size='small'
-						>
-							<Plus size={23} color='#37ce2c' />
-						</Button>
-						<b>{item.quantity}</b>
-						<Button
-							onClick={() => {
-								dispatch(
-									addToCart(
-										item,
-										item.quantity - 1,
-										item.varient,
-									),
-								);
-							}}
-							size='small'
-						>
-							<Minus size={23} color='#d11a2c' />
-						</Button>
-					</HStack>
-					<Text fontSize='1xl'>Description : {item.description}</Text>
-				</VStack>
-			</HStack>
+			<VStack alignItems='flex-start'>
+				<HStack>
+					<Text fontSize='2xl'>{item.name}</Text>
+					<Text fontSize='1xl'>[{item.varient}]</Text>
+				</HStack>
+				<Text fontSize='1xl'>
+					Price : {item.quantity}*{item.prices[0][item.varient]} =
+					{item.price}
+				</Text>
+				<HStack>
+					<Text fontSize='1xl'>Quantity :</Text>
+					<Button
+						onClick={() => {
+							dispatch(
+								addToCart(
+									item,
+									item.quantity + 1,
+									item.varient,
+								),
+							);
+						}}
+						size='small'
+					>
+						<Plus size={23} color='#37ce2c' />
+					</Button>
+					<b>{item.quantity}</b>
+					<Button
+						onClick={() => {
+							dispatch(
+								addToCart(
+									item,
+									item.quantity - 1,
+									item.varient,
+								),
+							);
+						}}
+						size='small'
+					>
+						<Minus size={23} color='#d11a2c' />
+					</Button>
+				</HStack>
+				<Text fontSize='1xl'>Description : {item.description}</Text>
+			</VStack>
+
 			<Spacer />
 			<HStack marginRight='30px'>
 				<Image
