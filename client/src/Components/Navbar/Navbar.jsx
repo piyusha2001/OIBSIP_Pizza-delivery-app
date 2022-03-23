@@ -3,12 +3,13 @@ import { useSelector } from 'react-redux';
 import './styles.css';
 export default function Navbar() {
 	const cartstate = useSelector((state) => state.cartReducer);
+	const user = JSON.parse(localStorage.getItem('user'));
 	return (
-		<nav class='navbar navbar-expand-lg navbar-dark custom-navbar  '>
-			<div class='container-fluid'>
-				<a class='navbar-brand'>Navbar</a>
+		<nav className='navbar navbar-expand-lg navbar-dark custom-navbar  '>
+			<div className='container-fluid'>
+				<a className='navbar-brand'>Navbar</a>
 				<button
-					class='navbar-toggler'
+					className='navbar-toggler'
 					type='button'
 					data-bs-toggle='collapse'
 					data-bs-target='#navbarNav'
@@ -16,21 +17,30 @@ export default function Navbar() {
 					aria-expanded='false'
 					aria-label='Toggle navigation'
 				>
-					<span class='navbar-toggler-icon'></span>
+					<span className='navbar-toggler-icon'></span>
 				</button>
-				<div class='collapse navbar-collapse' id='navbarNav'>
-					<ul class='navbar-nav ms-auto'>
-						<li class='nav-item '>
-							<a
-								class='nav-link active '
-								aria-current='page'
-								href='/login'
-							>
-								Login
-							</a>
+				<div className='collapse navbar-collapse' id='navbarNav'>
+					<ul className='navbar-nav ms-auto'>
+						<li className='nav-item '>
+							{user?.email ? (
+								<text
+									className='nav-link active '
+									aria-current='page'
+								>
+									{user?.firstName}
+								</text>
+							) : (
+								<a
+									className='nav-link active '
+									aria-current='page'
+									href='/login'
+								>
+									Login
+								</a>
+							)}
 						</li>
-						<li class='nav-item arrow '>
-							<a class='nav-link active' href='/cart'>
+						<li className='nav-item arrow '>
+							<a className='nav-link active' href='/cart'>
 								Cart : {cartstate.cartItems.length}
 							</a>
 						</li>
