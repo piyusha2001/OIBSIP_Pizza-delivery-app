@@ -7,6 +7,7 @@ const Signup = () => {
 	const [data, setData] = useState({
 		firstName: '',
 		lastName: '',
+		address: '',
 		email: '',
 		password: '',
 	});
@@ -66,6 +67,15 @@ const Signup = () => {
 							name='lastName'
 							onChange={handleChange}
 							value={data.lastName}
+							required
+							className={styles.input}
+						/>
+						<input
+							type='text'
+							placeholder='Address'
+							name='address'
+							onChange={handleChange}
+							value={data.address}
 							required
 							className={styles.input}
 						/>
