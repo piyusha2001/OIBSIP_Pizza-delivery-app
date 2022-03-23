@@ -16,8 +16,8 @@ const Main = () => {
 			<Navbar />
 			<Flex justifyContent='center'>
 				<Link to='/home'>
-					<Button margin={3} colorScheme='blue'>
-						Button
+					<Button margin={3} backgroundColor='#b33030' color='white'>
+						ORDER NOW
 					</Button>
 				</Link>
 			</Flex>
