@@ -9,7 +9,6 @@ router.get('/getallbases', async (req, res) => {
 	try {
 		const bases = await Bases.find({});
 		res.send(bases);
-		console.log(bases);
 	} catch (error) {
 		return res.status(404).json({ message: error });
 	}
