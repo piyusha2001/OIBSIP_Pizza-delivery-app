@@ -3,55 +3,39 @@ import axios from 'axios';
 export const getAllBases = () => async (dispatch) => {
 	dispatch({ type: 'GET_BASES_REQUEST' });
 
-	try {
-		const response = await axios.get(
-			'http://localhost:8080/api/myopizza/getallbases',
-		);
-		console.log(response);
-		dispatch({ type: 'GET_BASES_SUCCESS', payload: response.data });
-	} catch (error) {
-		dispatch({ type: 'GET_BASES_FAILED', payload: error });
-	}
+	const response = await axios.get(
+		'http://localhost:8080/api/myopizza/getallbases',
+	);
+	console.log(response);
+	dispatch({ type: 'GET_BASES_SUCCESS', payload: response.data });
 };
 
 export const getAllSauces = () => async (dispatch) => {
 	dispatch({ type: 'GET_SAUCES_REQUEST' });
 
-	try {
-		const response = await axios.get(
-			'http://localhost:8080/api/myopizza/getallsauces',
-		);
-		console.log(response);
-		dispatch({ type: 'GET_SAUCES_SUCCESS', payload: response.data });
-	} catch (error) {
-		dispatch({ type: 'GET_SAUCES_FAILED', payload: error });
-	}
+	const response = await axios.get(
+		'http://localhost:8080/api/myopizza/getallsauces',
+	);
+	console.log(response);
+	dispatch({ type: 'GET_SAUCES_SUCCESS', payload: response.data });
 };
 
 export const getAllToppings = () => async (dispatch) => {
 	dispatch({ type: 'GET_TOPPINGS_REQUEST' });
 
-	try {
-		const response = await axios.get(
-			'http://localhost:8080/api/myopizza/getalltoppings',
-		);
-		console.log(response);
-		dispatch({ type: 'GET_TOPPINGS_SUCCESS', payload: response.data });
-	} catch (error) {
-		dispatch({ type: 'GET_TOPPINGS_FAILED', payload: error });
-	}
+	const response = await axios.get(
+		'http://localhost:8080/api/myopizza/getalltoppings',
+	);
+	console.log(response);
+	dispatch({ type: 'GET_TOPPINGS_SUCCESS', payload: response.data });
 };
 
 export const getAllCheese = () => async (dispatch) => {
 	dispatch({ type: 'GET_CHEESE_REQUEST' });
 
-	try {
-		const response = await axios.get(
-			'http://localhost:8080/api/myopizza/getallcheese',
-		);
-		console.log(response);
-		dispatch({ type: 'GET_CHEESE_SUCCESS', payload: response.data });
-	} catch (error) {
-		dispatch({ type: 'GET_CHEESE_FAILED', payload: error });
-	}
+	const response = await axios.get(
+		'http://localhost:8080/api/myopizza/getallcheese',
+	);
+	console.log(response);
+	dispatch({ type: 'GET_CHEESE_SUCCESS', payload: response.data });
 };
