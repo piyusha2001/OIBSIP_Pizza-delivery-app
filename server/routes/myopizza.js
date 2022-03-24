@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const Base = require('../models/bases');
+const Bases = require('../models/bases');
 const Sauce = require('../models/sauces');
 const Toppings = require('../models/toppings');
 const Cheese = require('../models/cheese');
 
 router.get('/getallbases', async (req, res) => {
 	try {
-		const bases = await Base.find({});
+		const bases = await Bases.find({});
 		res.send(bases);
+		console.log(bases);
 	} catch (error) {
 		return res.status(404).json({ message: error });
 	}
