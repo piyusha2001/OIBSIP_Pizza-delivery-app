@@ -2,11 +2,21 @@ import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { cartReducer } from './reducers/cartReducer';
+import {
+	getAllBasesReducer,
+	getAllCheeseReducer,
+	getAllSaucesReducer,
+	getAllToppingsReducer,
+} from './reducers/myoPizzaReducer';
 import { getAllPizzasReducer } from './reducers/pizzaReducer';
 
 const finalReducer = combineReducers({
 	getAllPizzasReducer: getAllPizzasReducer,
 	cartReducer: cartReducer,
+	getAllCheeseReducer: getAllCheeseReducer,
+	getAllBasesReducer: getAllBasesReducer,
+	getAllSaucesReducer: getAllSaucesReducer,
+	getAllToppingsReducer: getAllToppingsReducer,
 });
 
 const cartItems = localStorage.getItem('cartItems')
