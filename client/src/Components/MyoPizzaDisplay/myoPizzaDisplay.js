@@ -2,15 +2,17 @@ import {
 	Box,
 	Button,
 	Flex,
+	HStack,
 	Image,
 	Radio,
 	RadioGroup,
+	Spacer,
 	Stack,
 	Text,
 	VStack,
 } from '@chakra-ui/react';
 import { Select } from 'antd';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	getAllBases,
@@ -26,13 +28,34 @@ export default function MyoPizzaDisplay() {
 	const saucestate = useSelector((state) => state.getAllSaucesReducer);
 	const toppingstate = useSelector((state) => state.getAllToppingsReducer);
 	const cheesestate = useSelector((state) => state.getAllCheeseReducer);
+	const [cheesee, setCheese] = useState('');
+	const [tags, setTags] = useState([]);
+	const [sauce, setSauce] = useState('');
+	const [price, setPrice] = useState(0);
+	const [basename, setBasename] = useState('');
+	const [cartItem, setCartItem] = useState({
+		name: 'Make your Own Pizza',
+		image: '',
+		description:
+			JSON.stringify(tags) +
+			' , ' +
+			cheesee +
+			' , ' +
+			sauce +
+			' ,' +
+			basename,
+		varient: '',
+		quantity: 1,
+		prices: 0,
+		price: '',
+	});
 
 	const { bases } = basestate;
 	const { sauces } = saucestate;
 	const { toppings } = toppingstate;
 	const { cheese } = cheesestate;
-
 	const children = [];
+
 	children.push(
 		toppings.map((topping) => {
 			return <Option value={topping.name}>{topping.name}</Option>;
@@ -44,7 +67,12 @@ export default function MyoPizzaDisplay() {
 		dispatch(getAllToppings());
 		dispatch(getAllSauces());
 		dispatch(getAllCheese());
-	}, []);
+	}, [dispatch]);
+
+	useEffect(() => {
+		console.log(cartItem);
+	}, [cartItem]);
+
 	return (
 		<Flex justifyContent='center'>
 			<VStack margin={5}>
@@ -62,14 +90,34 @@ export default function MyoPizzaDisplay() {
 						<Text fontSize='3xl' textAlign='center'>
 							Create your own Pizza!!
 						</Text>
-						<Text padding='10px' fontSize='2xl'>
-							SIZE
-						</Text>
-						<RadioGroup>
+						<HStack>
+							<Text padding='10px' fontSize='2xl'>
+								SIZE
+							</Text>
+							<Spacer />
+							<Text padding='10px' fontSize='2xl'>
+								PRICE:-{price}
+							</Text>
+						</HStack>
+						<RadioGroup
+							onChange={(value) => {
+								const d = { ...cartItem };
+								d.varient = value;
+								if (value === 'small') {
+									d.prices = 200;
+								} else if (value === 'medium') {
+									d.prices = 300;
+								} else if (value === 'large') {
+									d.prices = 400;
+								}
+								setPrice(d.prices);
+								setCartItem(d);
+							}}
+						>
 							<Stack direction='row'>
-								<Radio value='1'>Small</Radio>
-								<Radio value='2'>Medium</Radio>
-								<Radio value='3'>Large</Radio>
+								<Radio value='small'>Small</Radio>
+								<Radio value='medium'>Medium</Radio>
+								<Radio value='large'>Large</Radio>
 							</Stack>
 						</RadioGroup>
 						<Text padding='10px' fontSize='2xl'>
@@ -78,11 +126,55 @@ export default function MyoPizzaDisplay() {
 						<Select
 							style={{ width: '100%' }}
 							placeholder='Select option'
+							onChange={(value) => {
+								setBasename(value);
+							}}
 						>
-							{bases.map((base) => {
+							{bases.map((base, index) => {
 								return (
 									<option value={base.name}>
-										{base.name}
+										<text
+											onClick={() => {
+												const d = { ...cartItem };
+												if (
+													cartItem?.varient ===
+													'small'
+												) {
+													d.prices =
+														200 +
+														base.prices[0][
+															cartItem?.varient
+														] *
+															cartItem?.quantity;
+												} else if (
+													cartItem?.varient ===
+													'medium'
+												) {
+													d.prices =
+														300 +
+														base.prices[0][
+															cartItem?.varient
+														] *
+															cartItem?.quantity;
+												} else if (
+													cartItem?.varient ===
+													'large'
+												) {
+													d.prices =
+														400 +
+														base.prices[0][
+															cartItem?.varient
+														] *
+															cartItem?.quantity;
+												}
+												setPrice(d.prices);
+												setCartItem(d);
+											}}
+										>
+											{base.name} |{' '}
+											{base.prices[0][cartItem?.varient]}
+											/-
+										</text>
 									</option>
 								);
 							})}
@@ -91,6 +183,7 @@ export default function MyoPizzaDisplay() {
 							Select any 3 toppings:-
 						</Text>
 						<Select
+							onChange={(value) => setTags(value)}
 							mode='tags'
 							style={{ width: '100%' }}
 							placeholder='Tags Mode'
@@ -103,6 +196,7 @@ export default function MyoPizzaDisplay() {
 						<Select
 							style={{ width: '100%' }}
 							placeholder='Select option'
+							onChange={(value) => setSauce(value)}
 						>
 							{sauces.map((sauce) => {
 								return (
@@ -118,11 +212,36 @@ export default function MyoPizzaDisplay() {
 						<Select
 							style={{ width: '100%' }}
 							placeholder='Select option'
+							onChange={(value) => setCheese(value)}
 						>
 							{cheese.map((cheese) => {
 								return (
 									<option value={cheese.name}>
 										{cheese.name}
+									</option>
+								);
+							})}
+						</Select>
+
+						<Text padding='10px' fontSize='2xl'>
+							Quantity:-
+						</Text>
+						<Select
+							style={{ width: '100%' }}
+							placeholder='Select option'
+							onChange={(value) => {
+								const d = { ...cartItem };
+								d.quantity = value;
+								let total = price * d.quantity;
+								setPrice(total);
+								d.prices = total;
+								setCartItem(d);
+							}}
+						>
+							{[...Array(10).keys()].map((x, i) => {
+								return (
+									<option key={i} value={i + 1}>
+										{i + 1}
 									</option>
 								);
 							})}
