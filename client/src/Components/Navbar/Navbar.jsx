@@ -7,7 +7,9 @@ export default function Navbar() {
 	return (
 		<nav className='navbar navbar-expand-lg navbar-dark custom-navbar  '>
 			<div className='container-fluid'>
-				<a className='navbar-brand'>Navbar</a>
+				<a className='navbar-brand' href='/'>
+					PIZZA PARADISE
+				</a>
 				<button
 					className='navbar-toggler'
 					type='button'
