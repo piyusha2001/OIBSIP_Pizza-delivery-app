@@ -54,7 +54,7 @@ export default function PizzaDisplay() {
 									color='#b33030'
 									padding='10px'
 									height='70px'
-									width='200px'
+									width='300px'
 									fontSize='20px'
 								>
 									Click here
