@@ -274,7 +274,7 @@ const Main = () => {
 						</SimpleGrid>
 					</VStack>
 					<VStack backgroundColor='#dee2e6' width='100%'>
-						<Text>@Copyright2021</Text>
+						<Text>@Copyright2022</Text>
 					</VStack>
 				</VStack>
 			</Flex>
