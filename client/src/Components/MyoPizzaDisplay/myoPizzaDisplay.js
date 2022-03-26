@@ -12,8 +12,10 @@ import {
 	VStack,
 } from '@chakra-ui/react';
 import { Select } from 'antd';
+import { nanoid } from 'nanoid';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../../actions/cartActions';
 import {
 	getAllBases,
 	getAllCheese,
@@ -35,19 +37,13 @@ export default function MyoPizzaDisplay() {
 	const [basename, setBasename] = useState('');
 	const [cartItem, setCartItem] = useState({
 		name: 'Make your Own Pizza',
-		image: '',
-		description:
-			JSON.stringify(tags) +
-			' , ' +
-			cheesee +
-			' , ' +
-			sauce +
-			' ,' +
-			basename,
+		_id: '',
+		image: 'https://cdn.pixabay.com/photo/2012/04/01/16/39/chefs-hat-23436__340.png',
+		description: '',
 		varient: '',
 		quantity: 1,
 		prices: 0,
-		price: '',
+		// price: '',
 	});
 
 	const { bases } = basestate;
@@ -68,10 +64,6 @@ export default function MyoPizzaDisplay() {
 		dispatch(getAllSauces());
 		dispatch(getAllCheese());
 	}, [dispatch]);
-
-	useEffect(() => {
-		console.log(cartItem);
-	}, [cartItem]);
 
 	return (
 		<Flex justifyContent='center'>
@@ -96,7 +88,7 @@ export default function MyoPizzaDisplay() {
 							</Text>
 							<Spacer />
 							<Text padding='10px' fontSize='2xl'>
-								PRICE:-{price}
+								PRICE:-{cartItem?.prices}
 							</Text>
 						</HStack>
 						<RadioGroup
@@ -110,6 +102,7 @@ export default function MyoPizzaDisplay() {
 								} else if (value === 'large') {
 									d.prices = 400;
 								}
+								console.log(value);
 								setPrice(d.prices);
 								setCartItem(d);
 							}}
@@ -167,6 +160,7 @@ export default function MyoPizzaDisplay() {
 														] *
 															cartItem?.quantity;
 												}
+												// d.price = base.prices;
 												setPrice(d.prices);
 												setCartItem(d);
 											}}
@@ -183,7 +177,15 @@ export default function MyoPizzaDisplay() {
 							Select any 3 toppings:-
 						</Text>
 						<Select
-							onChange={(value) => setTags(value)}
+							onChange={(value) => {
+								if (value?.length > 3) {
+									alert('Cannot select more than 3 toppings');
+								} else {
+									setTags(value);
+								}
+							}}
+							value={tags}
+							maxTagCount={3}
 							mode='tags'
 							style={{ width: '100%' }}
 							placeholder='Tags Mode'
@@ -232,8 +234,7 @@ export default function MyoPizzaDisplay() {
 							onChange={(value) => {
 								const d = { ...cartItem };
 								d.quantity = value;
-								let total = price * d.quantity;
-								setPrice(total);
+								let total = price * value;
 								d.prices = total;
 								setCartItem(d);
 							}}
@@ -252,6 +253,18 @@ export default function MyoPizzaDisplay() {
 							width='25%'
 							backgroundColor=' #b33030'
 							color='white'
+							onClick={() => {
+								const d = { ...cartItem };
+								d.description = `${basename}, ${tags
+									.join(' , ')
+									.toString()} , ${sauce}, ${cheesee}`;
+								console.log(d.description);
+								d._id = nanoid(24);
+								setCartItem(d);
+								console.log(cartItem);
+								dispatch(addToCart(d, d.quantity, d.varient));
+								console.log('Added');
+							}}
 						>
 							Add to Cart
 						</Button>
