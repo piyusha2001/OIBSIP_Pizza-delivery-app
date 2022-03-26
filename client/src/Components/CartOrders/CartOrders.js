@@ -7,10 +7,10 @@ import {
 	Text,
 	VStack,
 } from '@chakra-ui/react';
-import { Minus, Plus, Trash } from 'phosphor-react';
+import { Trash } from 'phosphor-react';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addToCart, deleteFromCart } from '../../actions/cartActions';
+import { deleteFromCart } from '../../actions/cartActions';
 export default function CartOrders({ item }) {
 	const dispatch = useDispatch();
 	return (
@@ -22,47 +22,17 @@ export default function CartOrders({ item }) {
 			borderRadius='25px'
 			padding='27px'
 			marginRight='10px'
+			marginBottom='20px'
 		>
 			<VStack alignItems='flex-start'>
 				<HStack>
 					<Text fontSize='2xl'>{item.name}</Text>
 					<Text fontSize='1xl'>[{item.varient}]</Text>
 				</HStack>
-				<Text fontSize='1xl'>
-					Price : {item.quantity}*{item.prices[0][item.varient]} =
-					{item.price}
-				</Text>
+				<Text fontSize='1xl'>Price :{item.price}</Text>
 				<HStack>
 					<Text fontSize='1xl'>Quantity :</Text>
-					<Button
-						onClick={() => {
-							dispatch(
-								addToCart(
-									item,
-									item.quantity + 1,
-									item.varient,
-								),
-							);
-						}}
-						size='small'
-					>
-						<Plus size={23} color='#37ce2c' />
-					</Button>
 					<b>{item.quantity}</b>
-					<Button
-						onClick={() => {
-							dispatch(
-								addToCart(
-									item,
-									item.quantity - 1,
-									item.varient,
-								),
-							);
-						}}
-						size='small'
-					>
-						<Minus size={23} color='#d11a2c' />
-					</Button>
 				</HStack>
 				<Text fontSize='1xl'>Description : {item.description}</Text>
 			</VStack>
