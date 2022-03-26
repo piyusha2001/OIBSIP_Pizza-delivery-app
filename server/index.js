@@ -8,6 +8,7 @@ const authRoutes = require('./routes/auth');
 const passwordResetRoutes = require('./routes/passwordReset');
 const pizzasRoute = require('./routes/pizzasRoute');
 const myoPizzaRoute = require('./routes/myopizza');
+const paymentRoute = require('./routes/payment');
 //connect database
 connection();
 
@@ -21,6 +22,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/password-reset', passwordResetRoutes);
 app.use('/api/pizzas', pizzasRoute);
 app.use('/api/myopizza', myoPizzaRoute);
+app.use('/api/payment', paymentRoute);
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Listening on port ${port}..`));
