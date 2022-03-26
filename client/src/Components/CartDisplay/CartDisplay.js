@@ -1,7 +1,8 @@
-import { Button, Flex, HStack, Text, VStack } from '@chakra-ui/react';
+import { Flex, HStack, Text, VStack } from '@chakra-ui/react';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import CartOrders from '../CartOrders/CartOrders';
+import Checkout from '../Checkout/Checkout';
 export default function CartDisplay() {
 	const cartstate = useSelector((state) => state.cartReducer);
 	const cartItems = cartstate.cartItems;
@@ -22,13 +23,7 @@ export default function CartDisplay() {
 						<Text fontSize='3xl' fontWeight='bold'>
 							SUBTOTAL:- {subtotal} /Rs
 						</Text>
-						<Button
-							backgroundColor='#b33030'
-							color='white'
-							width='100%'
-						>
-							PAY
-						</Button>
+						<Checkout subtotal={subtotal} />
 					</VStack>
 				</HStack>
 			</VStack>
