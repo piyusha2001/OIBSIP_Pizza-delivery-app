@@ -15,7 +15,10 @@ export const placeOrder = (subtotal) => async (dispatch, getState) => {
 				try {
 					const { data } = await axios.post(
 						'http://localhost:8080/api/payment/verifypayment',
-						response,
+						{
+							response,
+							cartItems,
+						},
 					);
 					console.log(data);
 				} catch (error) {
@@ -33,7 +36,7 @@ export const placeOrder = (subtotal) => async (dispatch, getState) => {
 	try {
 		const { data } = await axios.post(
 			'http://localhost:8080/api/payment/orders',
-			{ subtotal, cartItems },
+			{ subtotal },
 		);
 
 		console.log(data);
