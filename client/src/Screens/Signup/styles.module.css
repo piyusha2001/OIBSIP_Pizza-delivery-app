@@ -2,6 +2,10 @@
 	width: 100%;
 	min-height: 100vh;
 	background-color: #f5f5f5;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url('https://cdn.pixabay.com/photo/2020/05/07/23/14/pizza-5143513_960_720.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -22,7 +26,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: #3bb19b;
+	background-color: #b33030;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 }
@@ -84,7 +88,7 @@
 }
 
 .white_btn,
-.green_btn {
+.red_btn {
 	border: none;
 	outline: none;
 	padding: 12px 0;
@@ -92,12 +96,12 @@
 	border-radius: 20px;
 	width: 180px;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 20px;
 	cursor: pointer;
 }
 
-.green_btn {
-	background-color: #3bb19b;
+.red_btn {
+	background-color: #b33030;
 	color: white;
 	margin: 10px;
 }
