@@ -4,6 +4,14 @@ import './styles.css';
 export default function Navbar() {
 	const cartstate = useSelector((state) => state.cartReducer);
 	const user = JSON.parse(localStorage.getItem('user'));
+
+	function handleLogout() {
+		localStorage.removeItem('user');
+		localStorage.removeItem('cartItems');
+		localStorage.removeItem('token');
+		window.location.replace('/');
+	}
+
 	return (
 		<nav className='navbar navbar-expand-lg navbar-dark custom-navbar  '>
 			<div className='container-fluid'>
@@ -25,13 +33,49 @@ export default function Navbar() {
 					<ul className='navbar-nav ms-auto'>
 						<li className='nav-item '>
 							{user?.email ? (
-								<text
-									className='nav-link active '
-									aria-current='page'
-								>
-									{user?.firstName}
-								</text>
+								<div className='dropdown '>
+									<a
+										className='btn btn-secondary dropdown-toggle custom-navbar nav-text'
+										type='button'
+										id='dropdownMenuButton1'
+										data-bs-toggle='dropdown'
+										style={{
+											border: '0',
+										}}
+										href
+									>
+										{user.firstName}
+									</a>
+									<ul
+										className='dropdown-menu'
+										aria-labelledby='dropdownMenuButton1'
+									>
+										<li>
+											<a
+												className='dropdown-item'
+												href='/orders'
+											>
+												My Orders
+											</a>
+										</li>
+										<li>
+											<a
+												className='dropdown-item'
+												onClick={handleLogout}
+												href
+											>
+												Logout
+											</a>
+										</li>
+									</ul>
+								</div>
 							) : (
+								// <text
+								// 	className='nav-link active '
+								// 	aria-current='page'
+								// >
+								// 	{user?.firstName}
+								// </text>
 								<a
 									className='nav-link active '
 									aria-current='page'
