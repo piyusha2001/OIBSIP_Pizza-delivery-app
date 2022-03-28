@@ -9,6 +9,7 @@ import Home from './Screens/Home';
 import Login from './Screens/Login';
 import Main from './Screens/Main';
 import MyoPizza from './Screens/myoPizza/MyoPizza';
+import OrderScreen from './Screens/OrderScreen/OrderScreen';
 import PasswordReset from './Screens/PasswordReset';
 import Signup from './Screens/Signup';
 function App() {
@@ -29,6 +30,7 @@ function App() {
 			<Route path='/home' exact element={<Home />} />
 			<Route path='/cart' exact element={<CartScreen />} />
 			<Route path='/myoPizza' exact element={<MyoPizza />} />
+			<Route path='/myorders' exact element={<OrderScreen />} />
 		</Routes>
 	);
 }
