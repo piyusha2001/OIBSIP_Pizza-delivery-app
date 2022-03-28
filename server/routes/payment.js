@@ -65,7 +65,8 @@ router.post('/verifypayment', async (req, res) => {
 				orderItems: cartItems,
 				shippingAddress: address,
 				orderAmount: subtotal,
-				transactionId: orderId,
+				orderId: orderId,
+				paymentId: paymentId,
 			});
 			console.log(newOrder);
 			newOrder.save();
@@ -84,6 +85,18 @@ router.post('/verifypayment', async (req, res) => {
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ message: 'Internal Server Error' });
+	}
+});
+
+router.post('/getuserorders', async (req, res) => {
+	const { userId } = req.body;
+
+	try {
+		const orders = await Order.find({ userid: userId }).sort({ _id: -1 });
+		res.send(orders);
+	} catch (error) {
+		console.log(error);
+		res.status(400).json({ message: 'Something went wrong' });
 	}
 });
 
