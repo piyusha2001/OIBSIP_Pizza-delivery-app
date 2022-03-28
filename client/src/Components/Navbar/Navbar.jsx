@@ -53,7 +53,7 @@ export default function Navbar() {
 										<li>
 											<a
 												className='dropdown-item'
-												href='/orders'
+												href='/myorders'
 											>
 												My Orders
 											</a>
