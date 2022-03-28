@@ -32,6 +32,13 @@ export const placeOrder = (subtotal) => async (dispatch, getState) => {
 					);
 
 					console.log(data.message);
+					if (data.message === 'Payment verified successfully') {
+						dispatch({
+							type: 'ORDER_VERIFY_SUCCESS',
+						});
+					} else {
+						alert('Payment failed');
+					}
 				} catch (error) {
 					console.log(error);
 				}
@@ -51,10 +58,36 @@ export const placeOrder = (subtotal) => async (dispatch, getState) => {
 		);
 
 		console.log(data);
+		if (data.status === 'created') {
+			dispatch({
+				type: 'ORDER_CREATED_SUCCESS',
+			});
+		} else {
+			dispatch({
+				type: 'PLACE_ORDER_LOADING',
+			});
+		}
 		initPayment(data.data);
-		dispatch({ type: 'PLACE_ORDER_SUCCESS' });
 	} catch (error) {
-		dispatch({ type: 'PLACE_ORDER_FAILURE' });
 		console.log(error);
+		dispatch({
+			type: 'PLACE_ORDER_FAILED',
+		});
+	}
+};
+
+export const getUserOrders = () => async (dispatch) => {
+	dispatch({ type: 'GET_USER_ORDERS_REQUEST' });
+	const user = JSON.parse(localStorage.getItem('user'));
+
+	try {
+		const response = await axios.get(
+			'http://localhost:8080/api/payment/getuserorders',
+			{ userId: user._id },
+		);
+		// console.log(response);
+		dispatch({ type: 'GET_USER_ORDERS_SUCCESS', payload: response.data });
+	} catch (error) {
+		dispatch({ type: 'GET_USER_ORDERS_FAILED', payload: error });
 	}
 };
