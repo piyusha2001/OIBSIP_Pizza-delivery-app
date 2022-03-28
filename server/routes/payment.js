@@ -5,8 +5,6 @@ const Order = require('../models/orderModel');
 
 //create orders
 router.post('/orders', async (req, res) => {
-	const user = JSON.parse(localStorage.getItem('user'));
-
 	const { subtotal } = req.body;
 	try {
 		const instance = new Razorpay({
@@ -39,32 +37,47 @@ router.post('/orders', async (req, res) => {
 router.post('/verifypayment', async (req, res) => {
 	try {
 		const {
-			razorpay_order_id,
-			razorpay_payment_id,
-			razorpay_signature,
+			paymentId,
+			orderId,
+			signature,
+			firstname,
+			lastname,
+			email,
+			id,
+			address,
 			cartItems,
-		} = req.body;
-		const sign = razorpay_order_id + '|' + razorpay_payment_id;
+			subtotal,
+		} = await req.body;
+		console.log(cartItems);
+		console.log(subtotal);
+		const sign = orderId + '|' + paymentId;
 
 		const expectedSign = crypto
 			.createHmac('sha256', process.env.KEY_SECRET)
 			.update(sign.toString())
 			.digest('hex');
 
-		if (razorpay_signature === expectedSign) {
+		if (signature === expectedSign) {
 			const newOrder = new Order({
-				name: user.name,
-				email: user.email,
-				userid: user._id,
+				name: firstname + ' ' + lastname,
+				email: email,
+				userid: id,
 				orderItems: cartItems,
-				shippingAddress: user.address,
+				shippingAddress: address,
 				orderAmount: subtotal,
-				transactionId: razorpay_order_id,
+				transactionId: orderId,
 			});
+			console.log(newOrder);
 			newOrder.save();
-			return res
-				.status(200)
-				.json({ message: 'Payment verified successfully' });
+			if (newOrder) {
+				return res
+					.status(200)
+					.json({ message: 'Payment verified successfully' });
+			} else {
+				return res
+					.status(400)
+					.json({ message: 'Payment not verified' });
+			}
 		} else {
 			return res.status(400).json({ message: 'Invalid signature sent' });
 		}
