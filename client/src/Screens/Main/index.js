@@ -155,7 +155,7 @@ const Main = () => {
 										alignItems='flex-end'
 										borderRadius='0px'
 										width='50px'
-										src='https://cdn-icons.flaticon.com/png/512/2805/premium/2805947.png?token=exp=1648212925~hmac=aa53f3732ec6854c77946d52bb0f1495'
+										src='https://cdn-icons.flaticon.com/png/128/2153/premium/2153786.png?token=exp=1648453407~hmac=35a2a3ee71a54a962ee78b7b70a87080'
 									/>
 									<Text
 										textAlign='center'
@@ -182,7 +182,7 @@ const Main = () => {
 										alignItems='flex-end'
 										borderRadius='0px'
 										width='50px'
-										src='https://cdn-icons.flaticon.com/png/512/737/premium/737956.png?token=exp=1648213218~hmac=18c9982fad24825b85bf3be60302e492'
+										src='https://cdn-icons.flaticon.com/png/128/3514/premium/3514378.png?token=exp=1648453447~hmac=28e97ed843f7e7bcb58b3043eb9b3de3'
 									/>
 									<Text
 										textAlign='center'
@@ -234,7 +234,7 @@ const Main = () => {
 										alignItems='flex-end'
 										borderRadius='0px'
 										width='50px'
-										src='https://cdn-icons.flaticon.com/png/512/706/premium/706918.png?token=exp=1648213330~hmac=e6f61f34d718ac2b79cc458af016932c'
+										src='https://cdn-icons-png.flaticon.com/128/1684/1684426.png'
 									/>
 									<Text
 										textAlign='center'
