@@ -81,11 +81,11 @@ export const getUserOrders = () => async (dispatch) => {
 	const user = JSON.parse(localStorage.getItem('user'));
 
 	try {
-		const response = await axios.get(
+		const response = await axios.post(
 			'http://localhost:8080/api/payment/getuserorders',
 			{ userId: user._id },
 		);
-		// console.log(response);
+		console.log(response);
 		dispatch({ type: 'GET_USER_ORDERS_SUCCESS', payload: response.data });
 	} catch (error) {
 		dispatch({ type: 'GET_USER_ORDERS_FAILED', payload: error });
