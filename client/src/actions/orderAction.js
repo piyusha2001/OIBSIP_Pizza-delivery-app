@@ -105,3 +105,27 @@ export const getAllOrders = () => async (dispatch) => {
 		dispatch({ type: 'GET_ALL_ORDERS_FAILED', payload: error });
 	}
 };
+
+//check delivered order status
+export const deliverOrder = (orderid) => async (dispatch) => {
+	dispatch({ type: 'CHECK_ORDER_STATUS_REQUEST' });
+	try {
+		const response = await axios.post(
+			'http://localhost:8080/api/payment/deliverorder',
+			{ orderid: orderid },
+		);
+		console.log(response);
+		alert('Order Delivered');
+		const orders = await axios.get(
+			'http://localhost:8080/api/payment/getallorders',
+		);
+		window.location.reload();
+		console.log(orders);
+		dispatch({
+			type: 'CHECK_ORDER_STATUS_SUCCESS',
+			payload: orders.data,
+		});
+	} catch (error) {
+		dispatch({ type: 'CHECK_ORDER_STATUS_FAILED', payload: error });
+	}
+};
