@@ -91,3 +91,24 @@ export const getBaseByIdReducer = (state = {}, action) => {
 			return state;
 	}
 };
+export const updateBaseReducer = (state = {}, action) => {
+	switch (action.type) {
+		case 'UPDATE_BASE_REQUEST':
+			return {
+				updateloading: true,
+				...state,
+			};
+		case 'UPDATE_BASE_SUCCESS':
+			return {
+				updateloading: false,
+				updatesuccess: true,
+			};
+		case 'UPDATE_BASE_FAILED':
+			return {
+				updateloading: false,
+				updateerror: action.payload,
+			};
+		default:
+			return state;
+	}
+};
