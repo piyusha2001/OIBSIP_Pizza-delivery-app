@@ -3,6 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { cartReducer } from './reducers/cartReducer';
 import {
+	addBaseReducer,
 	getAllBasesReducer,
 	getAllCheeseReducer,
 	getAllSaucesReducer,
@@ -37,6 +38,7 @@ const finalReducer = combineReducers({
 	getAllOrdersReducer: getAllOrdersReducer,
 	deliverOrderReducer: deliverOrderReducer,
 	getAllUsersReducer: getAllUsersReducer,
+	addBaseReducer: addBaseReducer,
 });
 
 const cartItems = localStorage.getItem('cartItems')
