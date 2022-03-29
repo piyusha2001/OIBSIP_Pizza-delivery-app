@@ -40,4 +40,22 @@ router.get('/getalltoppings', async (req, res) => {
 	}
 });
 
+//add base
+router.post('/addbase', async (req, res) => {
+	const base = req.body.base;
+	try {
+		const newBase = new Bases({
+			name: base.name,
+			stock: base.stock,
+			varients: ['small', 'medium', 'large'],
+			prices: [base.prices],
+		});
+		await newBase.save();
+		res.send('New Base Added Successfully');
+		window.location.reload();
+	} catch (error) {
+		return res.status(404).json({ message: error });
+	}
+});
+
 module.exports = router;
