@@ -16,7 +16,7 @@ import { Pencil, Trash } from 'phosphor-react';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getAllPizzas } from '../actions/pizzaActions';
+import { deletePizza, getAllPizzas } from '../actions/pizzaActions';
 import AdminScreen from './AdminScreen/AdminScreen';
 export default function Pizzaslist() {
 	const dispatch = useDispatch();
@@ -76,7 +76,15 @@ export default function Pizzaslist() {
 										</Td>
 										<Td>{pizza.category}</Td>
 										<Td>
-											<Trash size={22} color='#bc2037' />
+											<Trash
+												onClick={() => {
+													dispatch(
+														deletePizza(pizza._id),
+													);
+												}}
+												size={22}
+												color='#bc2037'
+											/>
 											<Link
 												to={`/admin/editpizza/${pizza._id}`}
 											>
