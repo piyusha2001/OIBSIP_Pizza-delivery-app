@@ -69,3 +69,25 @@ export const addBaseReducer = (state = {}, action) => {
 			return state;
 	}
 };
+
+export const getBaseByIdReducer = (state = {}, action) => {
+	switch (action.type) {
+		case 'GET_BASE_BY_ID_REQUEST':
+			return {
+				loading: true,
+				...state,
+			};
+		case 'GET_BASE_BY_ID_SUCCESS':
+			return {
+				loading: false,
+				pizza: action.payload,
+			};
+		case 'GET_BASE_BY_ID_FAILED':
+			return {
+				loading: false,
+				error: action.payload,
+			};
+		default:
+			return state;
+	}
+};
