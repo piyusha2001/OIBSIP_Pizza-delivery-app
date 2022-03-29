@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllOrders } from '../actions/orderAction';
+import { deliverOrder, getAllOrders } from '../actions/orderAction';
 import AdminScreen from './AdminScreen/AdminScreen';
 
 export default function Orderslist() {
@@ -83,6 +83,11 @@ export default function Orderslist() {
 										<Button
 											backgroundColor='#b33030'
 											color='white'
+											onClick={() => {
+												dispatch(
+													deliverOrder(order._id),
+												);
+											}}
 										>
 											Deliver
 										</Button>
