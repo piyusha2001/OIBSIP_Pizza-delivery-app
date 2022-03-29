@@ -54,4 +54,15 @@ router.post('/updatepizza', async (req, res) => {
 	}
 });
 
+//delete pizza
+router.post('/deletepizza', async (req, res) => {
+	const pizzaid = req.body.pizzaid;
+	try {
+		const pizza = await Pizza.findByIdAndDelete(pizzaid);
+		res.send(pizza);
+	} catch (error) {
+		return res.status(404).json({ message: error });
+	}
+});
+
 module.exports = router;
