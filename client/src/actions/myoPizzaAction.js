@@ -54,3 +54,16 @@ export const addBase = (base) => async (dispatch) => {
 		dispatch({ type: 'ADD_BASE_FAILED', payload: error });
 	}
 };
+export const getBaseById = (baseid) => async (dispatch) => {
+	dispatch({ type: 'GET_BASE_BY_ID_REQUEST' });
+	try {
+		const response = await axios.post(
+			'http://localhost:8080/api/myopizza/getbasebyid',
+			{ baseid: baseid },
+		);
+		console.log(response);
+		dispatch({ type: 'GET_BASE_BY_ID_SUCCESS', payload: response.data });
+	} catch (error) {
+		dispatch({ type: 'GET_BASE_BY_ID_FAILED', payload: error });
+	}
+};
