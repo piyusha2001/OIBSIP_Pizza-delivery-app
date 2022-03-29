@@ -29,15 +29,32 @@ export const addPizza = (pizza) => async (dispatch) => {
 };
 
 //get pizza by id
-export const getPizzaById = () => async (dispatch) => {
+export const getPizzaById = (pizzaid) => async (dispatch) => {
 	dispatch({ type: 'GET_PIZZA_BY_ID_REQUEST' });
 	try {
-		const response = await axios.get(
+		const response = await axios.post(
 			'http://localhost:8080/api/pizzas/getpizzabyid',
+			{ pizzaid: pizzaid },
 		);
 		console.log(response);
 		dispatch({ type: 'GET_PIZZA_BY_ID_SUCCESS', payload: response.data });
 	} catch (error) {
 		dispatch({ type: 'GET_PIZZA_BY_ID_FAILED', payload: error });
+	}
+};
+
+//update pizza
+export const updatePizza = (updatedPizza) => async (dispatch) => {
+	dispatch({ type: 'UPDATE_PIZZA_REQUEST' });
+	try {
+		const response = await axios.post(
+			'http://localhost:8080/api/pizzas/updatepizza',
+			{ updatedPizza: updatedPizza },
+		);
+		console.log(response);
+		dispatch({ type: 'UPDATE_PIZZA_SUCCESS' });
+		window.location.href = '/admin/pizzaslist';
+	} catch (error) {
+		dispatch({ type: 'UPDATE_PIZZA_FAILED', payload: error });
 	}
 };
