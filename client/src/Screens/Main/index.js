@@ -14,16 +14,10 @@ import Navbar from '../../Components/Navbar/Navbar';
 import './styles.module.css';
 
 const Main = () => {
-	// let navigate = useNavigate();
-	// const user = localStorage.getItem('token');
-	// const handleLogout = () => {
-	// 	localStorage.removeItem('token');
-	// 	window.location.reload();
-	// };
-
 	const textLines = ['MORE CHEESEE!!', 'MORE TOPPINGS!!', 'MORE FUNNN!!'];
 
 	const user = JSON.parse(localStorage.getItem('user'));
+	console.log(user);
 	return (
 		<>
 			<Navbar />
@@ -60,7 +54,16 @@ const Main = () => {
 									loop
 								/>
 							</div>
-							<Link to={user?.email ? '/home' : '/login'}>
+
+							<Link
+								to={
+									user && user?.role === 'user'
+										? '/home'
+										: user && user?.role === 'admin'
+										? '/admin'
+										: '/login'
+								}
+							>
 								<Button
 									margin={3}
 									backgroundColor='#b33030'
