@@ -29,4 +29,29 @@ router.post('/addpizza', async (req, res) => {
 	}
 });
 
+//pizza by id
+router.post('/getpizzabyid', async (req, res) => {
+	const pizzaid = req.body.pizzaid;
+	try {
+		const pizza = await Pizza.findById(pizzaid);
+		res.send(pizza);
+	} catch (error) {
+		return res.status(404).json({ message: error });
+	}
+});
+
+//pizza by name
+router.post('/updatepizza', async (req, res) => {
+	const updatedPizza = req.body.updatedPizza;
+	try {
+		const pizza = await Pizza.findByIdAndUpdate(
+			updatedPizza._id,
+			updatedPizza,
+		);
+		res.send(pizza);
+	} catch (error) {
+		return res.status(404).json({ message: error });
+	}
+});
+
 module.exports = router;
