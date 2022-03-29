@@ -67,3 +67,19 @@ export const getBaseById = (baseid) => async (dispatch) => {
 		dispatch({ type: 'GET_BASE_BY_ID_FAILED', payload: error });
 	}
 };
+
+//update base
+export const updateBase = (updatedBase) => async (dispatch) => {
+	dispatch({ type: 'UPDATE_BASE_REQUEST' });
+	try {
+		const response = await axios.post(
+			'http://localhost:8080/api/myopizza/updatebase',
+			{ updatedBase: updatedBase },
+		);
+		console.log(response);
+		dispatch({ type: 'UPDATE_BASE_SUCCESS' });
+		window.location.href = '/admin/baseslist';
+	} catch (error) {
+		dispatch({ type: 'UPDATE_BASE_FAILED', payload: error });
+	}
+};
