@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import './index.css';
+import AdminScreen from './Screens/AdminScreen/AdminScreen';
 import CartScreen from './Screens/CartScreen/CartScreen';
 import EmailVerify from './Screens/EmailVerify';
 import ForgotPassword from './Screens/ForgotPassword';
@@ -13,9 +14,15 @@ import OrderScreen from './Screens/OrderScreen/OrderScreen';
 import PasswordReset from './Screens/PasswordReset';
 import Signup from './Screens/Signup';
 function App() {
-	// const user = localStorage.getItem('token');
-
 	return (
+		//if user role is admin, render AdminScreen, else render Main
+		// <div className='App'>
+		// 	{user && user.role === 'admin' ? (
+		// 		<AdminScreen />
+		// 	) : (
+		// 		<Main />
+		// 	)}
+
 		<Routes>
 			<Route path='/' exact element={<Main />} />
 			<Route path='/signup' exact element={<Signup />} />
@@ -31,6 +38,8 @@ function App() {
 			<Route path='/cart' exact element={<CartScreen />} />
 			<Route path='/myoPizza' exact element={<MyoPizza />} />
 			<Route path='/myorders' exact element={<OrderScreen />} />
+
+			<Route path='/admin' exact element={<AdminScreen />} />
 		</Routes>
 	);
 }
