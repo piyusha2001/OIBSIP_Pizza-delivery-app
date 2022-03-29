@@ -58,3 +58,20 @@ export const updatePizza = (updatedPizza) => async (dispatch) => {
 		dispatch({ type: 'UPDATE_PIZZA_FAILED', payload: error });
 	}
 };
+
+//delete pizza
+export const deletePizza = (pizzaid) => async (dispatch) => {
+	dispatch({ type: 'DELETE_PIZZA_REQUEST' });
+	try {
+		const response = await axios.post(
+			'http://localhost:8080/api/pizzas/deletepizza',
+			{ pizzaid: pizzaid },
+		);
+		console.log(response);
+		alert('Pizza deleted successfully');
+		dispatch({ type: 'DELETE_PIZZA_SUCCESS' });
+		window.location.reload();
+	} catch (error) {
+		dispatch({ type: 'DELETE_PIZZA_FAILED', payload: error });
+	}
+};
