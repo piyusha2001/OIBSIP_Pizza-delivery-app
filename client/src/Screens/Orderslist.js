@@ -52,7 +52,7 @@ export default function Orderslist() {
 
 			<TableContainer width='75%' margin='auto'>
 				<Table variant='striped' colorScheme='gray' borderWidth='2px'>
-					<TableCaption>Pizzas List</TableCaption>
+					<TableCaption>Orders List</TableCaption>
 					<Thead>
 						<Tr>
 							<Th>Order Id</Th>
