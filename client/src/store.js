@@ -20,6 +20,7 @@ import {
 	getPizzaByIdReducer,
 	updatePizzaReducer,
 } from './reducers/pizzaReducer';
+import { getAllUsersReducer } from './reducers/UsersReducer';
 
 const finalReducer = combineReducers({
 	getAllPizzasReducer: getAllPizzasReducer,
@@ -35,6 +36,7 @@ const finalReducer = combineReducers({
 	updatePizzaReducer: updatePizzaReducer,
 	getAllOrdersReducer: getAllOrdersReducer,
 	deliverOrderReducer: deliverOrderReducer,
+	getAllUsersReducer: getAllUsersReducer,
 });
 
 const cartItems = localStorage.getItem('cartItems')
