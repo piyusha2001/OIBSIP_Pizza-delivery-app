@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import './index.css';
+import Addbases from './Screens/Addbases.js';
 import Addpizza from './Screens/Addpizza.js';
 import AdminScreen from './Screens/AdminScreen/AdminScreen';
 import Baseslist from './Screens/Baseslist.js';
@@ -55,6 +56,7 @@ function App() {
 			<Route path='/admin/pizzaslist' element={<Pizzaslist />} />
 			<Route path='/admin/editpizza/:pizzaid' element={<Editpizza />} />
 			<Route path='/admin/baseslist' element={<Baseslist />} />
+			<Route path='/admin/addbases' element={<Addbases />} />
 		</Routes>
 	);
 }
