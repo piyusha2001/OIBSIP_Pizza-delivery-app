@@ -80,4 +80,15 @@ router.post('/updatebase', async (req, res) => {
 	}
 });
 
+//delete base
+router.post('/deletebase', async (req, res) => {
+	const baseid = req.body.baseid;
+	try {
+		const base = await Bases.findByIdAndDelete(baseid);
+		res.send(base);
+	} catch (error) {
+		return res.status(404).json({ message: error });
+	}
+});
+
 module.exports = router;
