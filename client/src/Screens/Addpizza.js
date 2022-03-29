@@ -38,9 +38,9 @@ export default function Addpizza() {
 			description: description,
 			category: category,
 			prices: {
-				small: smallPrice,
-				medium: mediumPrice,
-				large: largePrice,
+				small: Number(smallPrice),
+				medium: Number(mediumPrice),
+				large: Number(largePrice),
 			},
 		};
 		console.log(pizza);
@@ -70,7 +70,14 @@ export default function Addpizza() {
 			)}
 
 			{success && (
-				<Alert textAlign='center' status='success'>
+				<Alert
+					width='50%'
+					margin='auto'
+					alignItems='center'
+					justifyContent='center'
+					status='success'
+					textAlign='center'
+				>
 					<AlertIcon />
 					New pizza added successfully
 				</Alert>
