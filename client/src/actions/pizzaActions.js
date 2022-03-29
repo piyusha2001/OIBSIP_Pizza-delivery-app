@@ -15,7 +15,6 @@ export const getAllPizzas = () => async (dispatch) => {
 };
 
 export const addPizza = (pizza) => async (dispatch) => {
-	console.log(pizza);
 	dispatch({ type: 'ADD_PIZZA_REQUEST' });
 	try {
 		const response = await axios.post(
