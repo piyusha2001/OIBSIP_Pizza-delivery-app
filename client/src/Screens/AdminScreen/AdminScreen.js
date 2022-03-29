@@ -22,23 +22,48 @@ export default function AdminScreen() {
 						m={5}
 					>
 						<Link to='/admin/userslist'>
-							<Text fontSize='1xl' fontWeight='semibold'>
+							<Text
+								color='white'
+								fontSize='1xl'
+								fontWeight='semibold'
+							>
 								Users List
 							</Text>
 						</Link>
 						<Link to='/admin/pizzaslist'>
-							<Text fontSize='1xl' fontWeight='semibold'>
+							<Text
+								color='white'
+								fontSize='1xl'
+								fontWeight='semibold'
+							>
 								Pizzas List
 							</Text>
 						</Link>
 						<Link to='/admin/addpizzas'>
-							<Text fontSize='1xl' fontWeight='semibold'>
+							<Text
+								color='white'
+								fontSize='1xl'
+								fontWeight='semibold'
+							>
 								Add new pizzas
 							</Text>
 						</Link>
 						<Link to='/admin/orderslist'>
-							<Text fontSize='1xl' fontWeight='semibold'>
+							<Text
+								color='white'
+								fontSize='1xl'
+								fontWeight='semibold'
+							>
 								Orders list
+							</Text>
+						</Link>
+						<Link to='/admin/baseslist'>
+							<Text
+								color='white'
+								fontSize='1xl'
+								fontWeight='semibold'
+							>
+								Bases
 							</Text>
 						</Link>
 					</HStack>
