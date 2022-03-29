@@ -66,6 +66,23 @@ export default function OrderDisplay(order) {
 					<Text fontSize='1xl'>
 						Payment Id : {order.order.paymentId}
 					</Text>
+					<Text fontSize='1xl'>
+						Order Status :{' '}
+						<span>
+							<Text
+								color={
+									order.order.isDelivered ? 'green' : 'red'
+								}
+							>
+								{order.order.isDelivered
+									? 'Delivered'
+									: 'Pending'}
+								{order.order.isDelivered
+									? localStorage.removeItem('cartItems')
+									: null}
+							</Text>
+						</span>
+					</Text>
 				</VStack>
 
 				{/* <VStack width='100%'>
