@@ -83,3 +83,19 @@ export const updateBase = (updatedBase) => async (dispatch) => {
 		dispatch({ type: 'UPDATE_BASE_FAILED', payload: error });
 	}
 };
+
+//delete base
+export const deleteBase = (baseid) => async (dispatch) => {
+	dispatch({ type: 'DELETE_BASE_REQUEST' });
+	try {
+		const response = await axios.post(
+			'http://localhost:8080/api/myopizza/deletebase',
+			{ baseid: baseid },
+		);
+		console.log(response);
+		dispatch({ type: 'DELETE_BASE_SUCCESS' });
+		window.location.href = '/admin/baseslist';
+	} catch (error) {
+		dispatch({ type: 'DELETE_BASE_FAILED', payload: error });
+	}
+};
