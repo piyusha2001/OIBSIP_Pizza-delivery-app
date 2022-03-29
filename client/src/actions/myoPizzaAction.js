@@ -39,3 +39,18 @@ export const getAllCheese = () => async (dispatch) => {
 	// console.log(response);
 	dispatch({ type: 'GET_CHEESE_SUCCESS', payload: response.data });
 };
+
+//add base
+export const addBase = (base) => async (dispatch) => {
+	dispatch({ type: 'ADD_BASE_REQUEST' });
+	try {
+		const response = await axios.post(
+			'http://localhost:8080/api/myopizza/addbase',
+			{ base: base },
+		);
+		console.log(response);
+		dispatch({ type: 'ADD_BASE_SUCCESS' });
+	} catch (error) {
+		dispatch({ type: 'ADD_BASE_FAILED', payload: error });
+	}
+};
