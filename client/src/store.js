@@ -9,6 +9,7 @@ import {
 	getAllSaucesReducer,
 	getAllToppingsReducer,
 	getBaseByIdReducer,
+	updateBaseReducer,
 } from './reducers/myoPizzaReducer';
 import {
 	deliverOrderReducer,
@@ -41,6 +42,7 @@ const finalReducer = combineReducers({
 	getAllUsersReducer: getAllUsersReducer,
 	addBaseReducer: addBaseReducer,
 	getBaseByIdReducer: getBaseByIdReducer,
+	updateBaseReducer: updateBaseReducer,
 });
 
 const cartItems = localStorage.getItem('cartItems')
