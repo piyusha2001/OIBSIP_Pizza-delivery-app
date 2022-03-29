@@ -5,6 +5,7 @@ import './index.css';
 import Addpizza from './Screens/Addpizza.js';
 import AdminScreen from './Screens/AdminScreen/AdminScreen';
 import CartScreen from './Screens/CartScreen/CartScreen';
+import Editpizza from './Screens/Editpizza';
 import EmailVerify from './Screens/EmailVerify';
 import ForgotPassword from './Screens/ForgotPassword';
 import Home from './Screens/Home';
@@ -51,6 +52,7 @@ function App() {
 			<Route path='/admin/orderslist' element={<Orderslist />} />
 
 			<Route path='/admin/pizzaslist' element={<Pizzaslist />} />
+			<Route path='/admin/editpizza/:pizzaid' element={<Editpizza />} />
 		</Routes>
 	);
 }
