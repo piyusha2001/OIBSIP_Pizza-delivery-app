@@ -15,11 +15,12 @@ export const getAllPizzas = () => async (dispatch) => {
 };
 
 export const addPizza = (pizza) => async (dispatch) => {
+	console.log(pizza);
 	dispatch({ type: 'ADD_PIZZA_REQUEST' });
 	try {
 		const response = await axios.post(
 			'http://localhost:8080/api/pizzas/addpizza',
-			{ pizza },
+			{ pizza: pizza },
 		);
 		console.log(response);
 		dispatch({ type: 'ADD_PIZZA_SUCCESS' });
