@@ -14,7 +14,7 @@ import { Pencil, Trash } from 'phosphor-react';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getAllBases } from '../actions/myoPizzaAction';
+import { deleteBase, getAllBases } from '../actions/myoPizzaAction';
 import AdminScreen from './AdminScreen/AdminScreen';
 
 export default function Baseslist() {
@@ -65,7 +65,13 @@ export default function Baseslist() {
 								</Td>
 
 								<Td>
-									<Trash size={22} color='#bc2037' />
+									<Trash
+										size={22}
+										onClick={() => {
+											dispatch(deleteBase(base._id));
+										}}
+										color='#bc2037'
+									/>
 									<Link to={`/admin/editbase/${base._id}`}>
 										<Pencil size={22} color='#19e672' />
 									</Link>
