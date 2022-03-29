@@ -4,6 +4,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import './index.css';
 import Addpizza from './Screens/Addpizza.js';
 import AdminScreen from './Screens/AdminScreen/AdminScreen';
+import Baseslist from './Screens/Baseslist.js';
 import CartScreen from './Screens/CartScreen/CartScreen';
 import Editpizza from './Screens/Editpizza';
 import EmailVerify from './Screens/EmailVerify';
@@ -53,6 +54,7 @@ function App() {
 
 			<Route path='/admin/pizzaslist' element={<Pizzaslist />} />
 			<Route path='/admin/editpizza/:pizzaid' element={<Editpizza />} />
+			<Route path='/admin/baseslist' element={<Baseslist />} />
 		</Routes>
 	);
 }
