@@ -1,8 +1,18 @@
-import { Button, FormControl, FormLabel, Input, Text } from '@chakra-ui/react';
+import {
+	Alert,
+	AlertIcon,
+	Button,
+	FormControl,
+	FormLabel,
+	Input,
+	Spinner,
+	Text,
+} from '@chakra-ui/react';
 import React, { useState } from 'react';
-import AdminScreen from './AdminScreen/AdminScreen';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addPizza } from '../actions/pizzaActions';
+import AdminScreen from './AdminScreen/AdminScreen';
+
 export default function Addpizza() {
 	const [name, setName] = useState('');
 	const [smallPrice, setSmallPrice] = useState();
@@ -16,8 +26,11 @@ export default function Addpizza() {
 	//category
 	const [category, setCategory] = useState('');
 	const dispatch = useDispatch();
+	const addpizzastate = useSelector((state) => state.addPizzaReducer);
 
-	function formHandler(e, error) {
+	const { success, error, loading } = addpizzastate;
+
+	function formHandler(e) {
 		e.preventDefault();
 		const pizza = {
 			name: name,
@@ -39,6 +52,30 @@ export default function Addpizza() {
 			<Text fontSize='2xl' textAlign='center' fontWeight='semibold'>
 				Add Pizza
 			</Text>
+			{loading && (
+				<Spinner
+					thickness='4px'
+					speed='0.65s'
+					emptyColor='gray.200'
+					color='blue.500'
+					size='xl'
+				/>
+			)}
+
+			{error && (
+				<Alert status='error'>
+					<AlertIcon />
+					Something went wrong ! Try again
+				</Alert>
+			)}
+
+			{success && (
+				<Alert textAlign='center' status='success'>
+					<AlertIcon />
+					New pizza added successfully
+				</Alert>
+			)}
+
 			<FormControl width='50%' margin='auto' marginBottom={3} isRequired>
 				<FormLabel mt={2} htmlFor='name'>
 					Pizza Name
