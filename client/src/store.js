@@ -9,6 +9,7 @@ import {
 	getAllToppingsReducer,
 } from './reducers/myoPizzaReducer';
 import {
+	getAllOrdersReducer,
 	getUserOrdersReducer,
 	placeOrderReducer,
 } from './reducers/orderReducer';
@@ -31,6 +32,7 @@ const finalReducer = combineReducers({
 	addPizzaReducer: addPizzaReducer,
 	getPizzaByIdReducer: getPizzaByIdReducer,
 	updatePizzaReducer: updatePizzaReducer,
+	getAllOrdersReducer: getAllOrdersReducer,
 });
 
 const cartItems = localStorage.getItem('cartItems')
