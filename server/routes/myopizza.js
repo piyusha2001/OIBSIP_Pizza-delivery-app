@@ -57,5 +57,24 @@ router.post('/addbase', async (req, res) => {
 		return res.status(404).json({ message: error });
 	}
 });
+router.post('/getbasebyid', async (req, res) => {
+	const baseid = req.body.baseid;
+	try {
+		const base = await Base.findById(baseid);
+		res.send(base);
+	} catch (error) {
+		return res.status(404).json({ message: error });
+	}
+});
+
+router.post('/updatebase', async (req, res) => {
+	const updatedBase = req.body.updatedBase;
+	try {
+		const base = await Base.findByIdAndUpdate(updatedBase._id, updatedBase);
+		res.send(base);
+	} catch (error) {
+		return res.status(404).json({ message: error });
+	}
+});
 
 module.exports = router;
