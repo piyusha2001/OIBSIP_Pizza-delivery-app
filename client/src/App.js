@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import './index.css';
+import Addpizza from './Screens/Addpizza.js';
 import AdminScreen from './Screens/AdminScreen/AdminScreen';
 import CartScreen from './Screens/CartScreen/CartScreen';
 import EmailVerify from './Screens/EmailVerify';
@@ -11,8 +12,11 @@ import Login from './Screens/Login';
 import Main from './Screens/Main';
 import MyoPizza from './Screens/myoPizza/MyoPizza';
 import OrderScreen from './Screens/OrderScreen/OrderScreen';
+import Orderslist from './Screens/Orderslist.js';
 import PasswordReset from './Screens/PasswordReset';
+import Pizzaslist from './Screens/Pizzaslist.js';
 import Signup from './Screens/Signup';
+import Userslist from './Screens/Userslist.js';
 function App() {
 	return (
 		//if user role is admin, render AdminScreen, else render Main
@@ -40,6 +44,13 @@ function App() {
 			<Route path='/myorders' exact element={<OrderScreen />} />
 
 			<Route path='/admin' exact element={<AdminScreen />} />
+			<Route exact path='/admin/addpizzas' element={<Addpizza />} />
+
+			<Route path='/admin/userslist' element={<Userslist />} />
+
+			<Route path='/admin/orderslist' element={<Orderslist />} />
+
+			<Route path='/admin/pizzaslist' element={<Pizzaslist />} />
 		</Routes>
 	);
 }
