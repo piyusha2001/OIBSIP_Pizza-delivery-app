@@ -91,3 +91,17 @@ export const getUserOrders = () => async (dispatch) => {
 		dispatch({ type: 'GET_USER_ORDERS_FAILED', payload: error });
 	}
 };
+
+//get all orders
+export const getAllOrders = () => async (dispatch) => {
+	dispatch({ type: 'GET_ALL_ORDERS_REQUEST' });
+	try {
+		const response = await axios.get(
+			'http://localhost:8080/api/payment/getallorders',
+		);
+		console.log(response);
+		dispatch({ type: 'GET_ALL_ORDERS_SUCCESS', payload: response.data });
+	} catch (error) {
+		dispatch({ type: 'GET_ALL_ORDERS_FAILED', payload: error });
+	}
+};
