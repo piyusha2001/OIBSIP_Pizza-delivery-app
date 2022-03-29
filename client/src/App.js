@@ -7,6 +7,7 @@ import Addpizza from './Screens/Addpizza.js';
 import AdminScreen from './Screens/AdminScreen/AdminScreen';
 import Baseslist from './Screens/Baseslist.js';
 import CartScreen from './Screens/CartScreen/CartScreen';
+import Editbase from './Screens/Editbase.js';
 import Editpizza from './Screens/Editpizza';
 import EmailVerify from './Screens/EmailVerify';
 import ForgotPassword from './Screens/ForgotPassword';
@@ -57,6 +58,7 @@ function App() {
 			<Route path='/admin/editpizza/:pizzaid' element={<Editpizza />} />
 			<Route path='/admin/baseslist' element={<Baseslist />} />
 			<Route path='/admin/addbases' element={<Addbases />} />
+			<Route path='/admin/editbase/:baseid' element={<Editbase />} />
 		</Routes>
 	);
 }
