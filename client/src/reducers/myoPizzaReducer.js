@@ -80,7 +80,7 @@ export const getBaseByIdReducer = (state = {}, action) => {
 		case 'GET_BASE_BY_ID_SUCCESS':
 			return {
 				loading: false,
-				pizza: action.payload,
+				base: action.payload,
 			};
 		case 'GET_BASE_BY_ID_FAILED':
 			return {
