@@ -36,7 +36,7 @@ export default function Editpizza() {
 		} else {
 			dispatch(getPizzaById(pizzaid));
 		}
-	}, [dispatch, pizza]);
+	}, [dispatch, pizza, pizzaid]);
 
 	function formHandler(e) {
 		e.preventDefault();
