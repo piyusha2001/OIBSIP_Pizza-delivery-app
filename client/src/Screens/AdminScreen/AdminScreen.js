@@ -66,6 +66,15 @@ export default function AdminScreen() {
 								Bases
 							</Text>
 						</Link>
+						<Link to='/admin/addbases'>
+							<Text
+								color='white'
+								fontSize='1xl'
+								fontWeight='semibold'
+							>
+								Add Base
+							</Text>
+						</Link>
 					</HStack>
 				</VStack>
 			</Box>
