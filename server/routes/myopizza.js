@@ -60,7 +60,7 @@ router.post('/addbase', async (req, res) => {
 router.post('/getbasebyid', async (req, res) => {
 	const baseid = req.body.baseid;
 	try {
-		const base = await Base.findById(baseid);
+		const base = await Bases.findById(baseid);
 		res.send(base);
 	} catch (error) {
 		return res.status(404).json({ message: error });
@@ -70,7 +70,10 @@ router.post('/getbasebyid', async (req, res) => {
 router.post('/updatebase', async (req, res) => {
 	const updatedBase = req.body.updatedBase;
 	try {
-		const base = await Base.findByIdAndUpdate(updatedBase._id, updatedBase);
+		const base = await Bases.findByIdAndUpdate(
+			updatedBase._id,
+			updatedBase,
+		);
 		res.send(base);
 	} catch (error) {
 		return res.status(404).json({ message: error });
