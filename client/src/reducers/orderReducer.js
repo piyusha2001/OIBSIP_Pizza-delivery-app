@@ -72,3 +72,25 @@ export const getAllOrdersReducer = (state = { orders: [] }, action) => {
 			return state;
 	}
 };
+
+//deliver order reducer
+export const deliverOrderReducer = (state = { orders: [] }, action) => {
+	switch (action.type) {
+		case 'DELIVER_ORDER_REQUEST':
+			return {
+				loading: true,
+			};
+		case 'DELIVER_ORDER_SUCCESS':
+			return {
+				loading: false,
+				orders: action.payload,
+			};
+		case 'DELIVER_ORDER_FAILED':
+			return {
+				loading: false,
+				error: action.payload,
+			};
+		default:
+			return state;
+	}
+};
