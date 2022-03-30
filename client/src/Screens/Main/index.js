@@ -59,8 +59,6 @@ const Main = () => {
 								to={
 									user && user?.role === 'user'
 										? '/home'
-										: user && user?.role === 'admin'
-										? '/admin'
 										: '/login'
 								}
 							>
