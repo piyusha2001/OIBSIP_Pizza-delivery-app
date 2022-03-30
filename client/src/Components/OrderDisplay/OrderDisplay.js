@@ -74,9 +74,13 @@ export default function OrderDisplay(order) {
 									order.order.isDelivered ? 'green' : 'red'
 								}
 							>
-								{order.order.isDelivered
-									? 'Delivered'
-									: 'Pending'}
+								{order.order.isDelivered ? (
+									<Text fontWeight='semibold'>DELIVERED</Text>
+								) : (
+									<Text fontWeight='semibold'>
+										NOT DELIVERED
+									</Text>
+								)}
 								{order.order.isDelivered
 									? localStorage.removeItem('cartItems')
 									: null}
