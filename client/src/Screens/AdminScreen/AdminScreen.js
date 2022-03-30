@@ -30,6 +30,15 @@ export default function AdminScreen() {
 								Users List
 							</Text>
 						</Link>
+						<Link to='/admin/orderslist'>
+							<Text
+								color='white'
+								fontSize='1xl'
+								fontWeight='semibold'
+							>
+								Orders list
+							</Text>
+						</Link>
 						<Link to='/admin/pizzaslist'>
 							<Text
 								color='white'
@@ -48,15 +57,7 @@ export default function AdminScreen() {
 								Add new pizzas
 							</Text>
 						</Link>
-						<Link to='/admin/orderslist'>
-							<Text
-								color='white'
-								fontSize='1xl'
-								fontWeight='semibold'
-							>
-								Orders list
-							</Text>
-						</Link>
+
 						<Link to='/admin/baseslist'>
 							<Text
 								color='white'
