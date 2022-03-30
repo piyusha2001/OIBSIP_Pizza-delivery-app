@@ -4,6 +4,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import './index.css';
 import Addbases from './Screens/Addbases.js';
 import Addpizza from './Screens/Addpizza.js';
+import Addtopping from './Screens/Addtopping.js';
 import AdminScreen from './Screens/AdminScreen/AdminScreen';
 import Baseslist from './Screens/Baseslist.js';
 import CartScreen from './Screens/CartScreen/CartScreen';
@@ -62,6 +63,7 @@ function App() {
 			<Route path='/admin/addbases' element={<Addbases />} />
 			<Route path='/admin/editbase/:baseid' element={<Editbase />} />
 			<Route path='/admin/toppingslist' element={<Toppingslist />} />
+			<Route path='/admin/addtopping' element={<Addtopping />} />
 		</Routes>
 	);
 }
