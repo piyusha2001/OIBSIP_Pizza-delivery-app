@@ -130,4 +130,15 @@ router.post('/updatetopping', async (req, res) => {
 		return res.status(404).json({ message: error });
 	}
 });
+
+//delete topping
+router.post('/deletetopping', async (req, res) => {
+	const toppingid = req.body.toppingid;
+	try {
+		const topping = await Toppings.findByIdAndDelete(toppingid);
+		res.send(topping);
+	} catch (error) {
+		return res.status(404).json({ message: error });
+	}
+});
 module.exports = router;
