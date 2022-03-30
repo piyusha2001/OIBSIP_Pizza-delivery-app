@@ -1,7 +1,7 @@
 import { Box, Button, Image, Select, Text } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import { addToCart } from '../../actions/cartActions';
 export default function Pizza({ pizza }) {
 	const [show, setShow] = useState(false);
