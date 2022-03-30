@@ -106,4 +106,28 @@ router.post('/addtopping', async (req, res) => {
 	}
 });
 
+//get topping by id
+router.post('/gettoppingbyid', async (req, res) => {
+	const toppingid = req.body.toppingid;
+	try {
+		const topping = await Toppings.findById(toppingid);
+		res.send(topping);
+	} catch (error) {
+		return res.status(404).json({ message: error });
+	}
+});
+
+//update topping
+router.post('/updatetopping', async (req, res) => {
+	const updatedTopping = req.body.updatedTopping;
+	try {
+		const topping = await Toppings.findByIdAndUpdate(
+			updatedTopping._id,
+			updatedTopping,
+		);
+		res.send(topping);
+	} catch (error) {
+		return res.status(404).json({ message: error });
+	}
+});
 module.exports = router;
