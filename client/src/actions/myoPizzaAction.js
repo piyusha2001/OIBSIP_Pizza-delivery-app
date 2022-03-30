@@ -114,3 +114,18 @@ export const addTopping = (topping) => async (dispatch) => {
 		dispatch({ type: 'ADD_TOPPING_FAILED', payload: error });
 	}
 };
+
+//get topping by id
+export const getToppingById = (toppingid) => async (dispatch) => {
+	dispatch({ type: 'GET_TOPPING_BY_ID_REQUEST' });
+	try {
+		const response = await axios.post(
+			'http://localhost:8080/api/myopizza/gettoppingbyid',
+			{ toppingid: toppingid },
+		);
+		console.log(response);
+		dispatch({ type: 'GET_TOPPING_BY_ID_SUCCESS', payload: response.data });
+	} catch (error) {
+		dispatch({ type: 'GET_TOPPING_BY_ID_FAILED', payload: error });
+	}
+};
