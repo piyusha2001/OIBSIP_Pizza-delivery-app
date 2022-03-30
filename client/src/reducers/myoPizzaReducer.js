@@ -158,3 +158,26 @@ export const getToppingByIdReducer = (state = {}, action) => {
 			return state;
 	}
 };
+
+//update topping reducer
+export const updateToppingReducer = (state = {}, action) => {
+	switch (action.type) {
+		case 'UPDATE_TOPPING_REQUEST':
+			return {
+				updateloading: true,
+				...state,
+			};
+		case 'UPDATE_TOPPING_SUCCESS':
+			return {
+				updateloading: false,
+				updatesuccess: true,
+			};
+		case 'UPDATE_TOPPING_FAILED':
+			return {
+				updateloading: false,
+				updateerror: action.payload,
+			};
+		default:
+			return state;
+	}
+};
