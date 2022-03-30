@@ -145,3 +145,18 @@ export const updateTopping = (updatedTopping) => async (dispatch) => {
 		dispatch({ type: 'UPDATE_TOPPING_FAILED', payload: error });
 	}
 };
+//delete topping
+export const deleteTopping = (toppingid) => async (dispatch) => {
+	dispatch({ type: 'DELETE_TOPPING_REQUEST' });
+	try {
+		const response = await axios.post(
+			'http://localhost:8080/api/myopizza/deletetopping',
+			{ toppingid: toppingid },
+		);
+		console.log(response);
+		dispatch({ type: 'DELETE_TOPPING_SUCCESS' });
+		window.location.href = '/admin/toppingslist';
+	} catch (error) {
+		dispatch({ type: 'DELETE_TOPPING_FAILED', payload: error });
+	}
+};
