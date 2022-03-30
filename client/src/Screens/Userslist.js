@@ -50,7 +50,7 @@ export default function Userslist() {
 			)}
 			<TableContainer width='75%' margin='auto'>
 				<Table variant='striped' colorScheme='gray' borderWidth='2px'>
-					<TableCaption>Orders List</TableCaption>
+					<TableCaption>Users List</TableCaption>
 					<Thead>
 						<Tr>
 							<Th>Username</Th>
