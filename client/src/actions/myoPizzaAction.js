@@ -129,3 +129,19 @@ export const getToppingById = (toppingid) => async (dispatch) => {
 		dispatch({ type: 'GET_TOPPING_BY_ID_FAILED', payload: error });
 	}
 };
+
+//update topping
+export const updateTopping = (updatedTopping) => async (dispatch) => {
+	dispatch({ type: 'UPDATE_TOPPING_REQUEST' });
+	try {
+		const response = await axios.post(
+			'http://localhost:8080/api/myopizza/updatetopping',
+			{ updatedTopping: updatedTopping },
+		);
+		console.log(response);
+		dispatch({ type: 'UPDATE_TOPPING_SUCCESS' });
+		window.location.href = '/admin/toppingslist';
+	} catch (error) {
+		dispatch({ type: 'UPDATE_TOPPING_FAILED', payload: error });
+	}
+};
