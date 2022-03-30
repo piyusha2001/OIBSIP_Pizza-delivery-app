@@ -14,7 +14,7 @@ import { Pencil, Trash } from 'phosphor-react';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getAllToppings } from '../actions/myoPizzaAction';
+import { deleteTopping, getAllToppings } from '../actions/myoPizzaAction';
 import AdminScreen from './AdminScreen/AdminScreen';
 
 export default function Toppingslist() {
@@ -57,7 +57,15 @@ export default function Toppingslist() {
 								<Td>{topping.name}</Td>
 								<Td>{topping.stock}</Td>
 								<Td>
-									<Trash size={22} color='#bc2037' />
+									<Trash
+										onClick={() => {
+											dispatch(
+												deleteTopping(topping._id),
+											);
+										}}
+										size={22}
+										color='#bc2037'
+									/>
 									<Link
 										to={`/admin/edittopping/${topping._id}`}
 									>
