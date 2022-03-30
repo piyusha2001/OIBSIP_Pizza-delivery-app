@@ -4,6 +4,8 @@
 This is a Full stack Pizza Delivery App .
 
 #Features : -
+
+
 1)For User:-
 a) User login and Admin login with complete registration , authorization ,email verification and forgot password system.
 b) User can add already present pizza items to the cart or can customize his/her own pizza and add it to cart.
