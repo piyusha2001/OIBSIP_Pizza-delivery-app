@@ -135,3 +135,26 @@ export const addToppingReducer = (state = {}, action) => {
 			return state;
 	}
 };
+
+//get topping by id reducer
+export const getToppingByIdReducer = (state = {}, action) => {
+	switch (action.type) {
+		case 'GET_TOPPING_BY_ID_REQUEST':
+			return {
+				loading: true,
+				...state,
+			};
+		case 'GET_TOPPING_BY_ID_SUCCESS':
+			return {
+				loading: false,
+				topping: action.payload,
+			};
+		case 'GET_TOPPING_BY_ID_FAILED':
+			return {
+				loading: false,
+				error: action.payload,
+			};
+		default:
+			return state;
+	}
+};
