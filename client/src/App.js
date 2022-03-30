@@ -10,6 +10,7 @@ import Baseslist from './Screens/Baseslist.js';
 import CartScreen from './Screens/CartScreen/CartScreen';
 import Editbase from './Screens/Editbase.js';
 import Editpizza from './Screens/Editpizza';
+import Edittopping from './Screens/Edittopping.js';
 import EmailVerify from './Screens/EmailVerify';
 import ForgotPassword from './Screens/ForgotPassword';
 import Home from './Screens/Home';
@@ -64,6 +65,10 @@ function App() {
 			<Route path='/admin/editbase/:baseid' element={<Editbase />} />
 			<Route path='/admin/toppingslist' element={<Toppingslist />} />
 			<Route path='/admin/addtopping' element={<Addtopping />} />
+			<Route
+				path='/admin/edittopping/:toppingid'
+				element={<Edittopping />}
+			/>
 		</Routes>
 	);
 }
