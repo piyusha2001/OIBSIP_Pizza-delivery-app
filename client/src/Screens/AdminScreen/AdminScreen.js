@@ -75,6 +75,15 @@ export default function AdminScreen() {
 								Add Base
 							</Text>
 						</Link>
+						<Link to='/admin/toppingslist'>
+							<Text
+								color='white'
+								fontSize='1xl'
+								fontWeight='semibold'
+							>
+								Toppings
+							</Text>
+						</Link>
 					</HStack>
 				</VStack>
 			</Box>
