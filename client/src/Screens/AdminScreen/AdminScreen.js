@@ -3,6 +3,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function AdminScreen() {
+	function handleLogout() {
+		localStorage.removeItem('user');
+		localStorage.removeItem('token');
+		window.location.replace('/');
+	}
 	return (
 		<>
 			<VStack width='100%'>
@@ -15,6 +20,7 @@ export default function AdminScreen() {
 					width='15%'
 					backgroundColor='#b33030'
 					color='white'
+					onClick={handleLogout}
 				>
 					Logout
 				</Button>
