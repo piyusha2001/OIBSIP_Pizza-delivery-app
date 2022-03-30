@@ -99,3 +99,18 @@ export const deleteBase = (baseid) => async (dispatch) => {
 		dispatch({ type: 'DELETE_BASE_FAILED', payload: error });
 	}
 };
+
+//add topping
+export const addTopping = (topping) => async (dispatch) => {
+	dispatch({ type: 'ADD_TOPPING_REQUEST' });
+	try {
+		const response = await axios.post(
+			'http://localhost:8080/api/myopizza/addtopping',
+			{ topping: topping },
+		);
+		console.log(response);
+		dispatch({ type: 'ADD_TOPPING_SUCCESS' });
+	} catch (error) {
+		dispatch({ type: 'ADD_TOPPING_FAILED', payload: error });
+	}
+};
