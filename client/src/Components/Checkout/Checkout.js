@@ -1,5 +1,5 @@
 import { Alert, AlertIcon, Button, Spinner } from '@chakra-ui/react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { placeOrder } from '../../actions/orderAction';
 
@@ -7,6 +7,15 @@ export default function Checkout({ subtotal }) {
 	const orderstate = useSelector((state) => state.placeOrderReducer);
 	const { loading, error, success } = orderstate;
 	const dispatch = useDispatch();
+	//if success is true, then redirect to orders page and clear the cart
+	useEffect(() => {
+		if (success) {
+			localStorage.removeItem('cartItems');
+		} else {
+			return;
+		}
+	}, [success]);
+
 	return (
 		<>
 			{loading && (
@@ -29,7 +38,7 @@ export default function Checkout({ subtotal }) {
 			{success && (
 				<Alert status='success'>
 					<AlertIcon />
-					Payment Done ! Order Placed Successfully
+					Payment Done ! Order Placed Successfully . Go to My Orders!
 				</Alert>
 			)}
 
