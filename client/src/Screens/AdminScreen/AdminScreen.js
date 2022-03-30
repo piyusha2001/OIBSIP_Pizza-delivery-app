@@ -1,13 +1,25 @@
-import { Box, HStack, Text, VStack } from '@chakra-ui/react';
+import { Box, Button, HStack, Text, VStack } from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function AdminScreen() {
 	return (
 		<>
-			<Text textAlign='center' m={5} fontSize='3xl' fontWeight='bold'>
-				Admin Panel
-			</Text>
+			<VStack width='100%'>
+				<Text textAlign='center' m={5} fontSize='3xl' fontWeight='bold'>
+					Admin Panel
+				</Text>
+
+				<Button
+					textAlign='center'
+					width='15%'
+					backgroundColor='#b33030'
+					color='white'
+				>
+					Logout
+				</Button>
+			</VStack>
+
 			<Box width='75%' margin='auto'>
 				<VStack>
 					<HStack
