@@ -91,4 +91,19 @@ router.post('/deletebase', async (req, res) => {
 	}
 });
 
+//add topping
+router.post('/addtopping', async (req, res) => {
+	const topping = req.body.topping;
+	try {
+		const newTopping = new Toppings({
+			name: topping.name,
+			stock: topping.stock,
+		});
+		await newTopping.save();
+		res.send('New Topping Added Successfully');
+	} catch (error) {
+		return res.status(404).json({ message: error });
+	}
+});
+
 module.exports = router;
