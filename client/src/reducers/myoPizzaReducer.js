@@ -112,3 +112,26 @@ export const updateBaseReducer = (state = {}, action) => {
 			return state;
 	}
 };
+
+//add topping
+export const addToppingReducer = (state = {}, action) => {
+	switch (action.type) {
+		case 'ADD_TOPPING_REQUEST':
+			return {
+				loading: true,
+				...state,
+			};
+		case 'ADD_TOPPING_SUCCESS':
+			return {
+				loading: false,
+				success: true,
+			};
+		case 'ADD_TOPPING_FAILED':
+			return {
+				loading: false,
+				error: action.payload,
+			};
+		default:
+			return state;
+	}
+};
