@@ -20,7 +20,9 @@ import Orderslist from './Screens/Orderslist.js';
 import PasswordReset from './Screens/PasswordReset';
 import Pizzaslist from './Screens/Pizzaslist.js';
 import Signup from './Screens/Signup';
+import Toppingslist from './Screens/Toppingslist.js';
 import Userslist from './Screens/Userslist.js';
+
 function App() {
 	return (
 		//if user role is admin, render AdminScreen, else render Main
@@ -59,6 +61,7 @@ function App() {
 			<Route path='/admin/baseslist' element={<Baseslist />} />
 			<Route path='/admin/addbases' element={<Addbases />} />
 			<Route path='/admin/editbase/:baseid' element={<Editbase />} />
+			<Route path='/admin/toppingslist' element={<Toppingslist />} />
 		</Routes>
 	);
 }
