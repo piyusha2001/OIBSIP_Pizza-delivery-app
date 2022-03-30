@@ -10,6 +10,7 @@ const Login = () => {
 	const handleChange = ({ currentTarget: input }) => {
 		setData({ ...data, [input.name]: input.value });
 	};
+	const user = JSON.parse(localStorage.getItem('user'));
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -18,7 +19,9 @@ const Login = () => {
 			const res = await axios.post(url, data);
 			localStorage.setItem('token', JSON.stringify(res?.data?.data));
 			localStorage.setItem('user', JSON.stringify(res?.data?.user));
-			window.location = '/';
+			user && user.role === 'admin'
+				? window.location.replace('/admin')
+				: window.location.replace('/');
 		} catch (error) {
 			if (
 				error.response &&
