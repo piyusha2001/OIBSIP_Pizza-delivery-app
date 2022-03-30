@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import { cartReducer } from './reducers/cartReducer';
 import {
 	addBaseReducer,
+	addToppingReducer,
 	getAllBasesReducer,
 	getAllCheeseReducer,
 	getAllSaucesReducer,
@@ -43,6 +44,7 @@ const finalReducer = combineReducers({
 	addBaseReducer: addBaseReducer,
 	getBaseByIdReducer: getBaseByIdReducer,
 	updateBaseReducer: updateBaseReducer,
+	addToppingReducer: addToppingReducer,
 });
 
 const cartItems = localStorage.getItem('cartItems')
