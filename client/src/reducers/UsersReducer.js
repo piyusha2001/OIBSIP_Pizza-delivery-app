@@ -19,3 +19,15 @@ export const getAllUsersReducer = (state = { users: [] }, action) => {
 			return state;
 	}
 };
+
+// setUserData from actions/userAction.js
+export const setUserDataReducer = (state = { userData: [] }, action) => {
+	switch (action.type) {
+		case 'SET_USER_DATA':
+			return {
+				userData: action.payload,
+			};
+		default:
+			return state;
+	}
+};
