@@ -16,9 +16,7 @@ const Login = () => {
 		try {
 			const url = 'http://localhost:8080/api/auth';
 			const res = await axios.post(url, data);
-			localStorage.setItem('token', JSON.stringify(res?.data?.data));
-			localStorage.setItem('user', JSON.stringify(res?.data?.user));
-			//check if user is admin
+			localStorage.setItem('token', res?.data?.data);
 			if (res?.data?.user?.role === 'admin') {
 				window.location.href = '/admin';
 			} else {
