@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../models/user');
 const Token = require('../models/token');
+const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const sendEmail = require('../utils/sendEmail');
 const bcrypt = require('bcrypt');
@@ -51,6 +52,26 @@ router.post('/', async (req, res) => {
 		});
 	} catch (error) {
 		res.status(500).send({ message: 'Internal Server Error' });
+	}
+});
+router.get('/jwt/verify', async (req, res) => {
+	try {
+		const user = await jwt.verify(
+			req.query.token,
+			process.env.JWTPRIVATEKEY,
+		);
+		const userData = await User.findOne({ _id: user._id });
+		res.send({
+			success: true,
+			data: user,
+			userData,
+			message: 'Valid User',
+		});
+	} catch (error) {
+		res.status(500).send({
+			success: false,
+			message: error?.message,
+		});
 	}
 });
 
