@@ -68,7 +68,7 @@ function App() {
 					console.log(err);
 				});
 		}
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<Routes>
