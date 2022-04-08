@@ -95,15 +95,12 @@ function App() {
 				<>
 					<Route path='/admin' exact element={<AdminScreen />} />
 					<Route
-						exact
 						path='/admin/addpizzas'
+						exact
 						element={<Addpizza />}
 					/>
-
 					<Route path='/admin/userslist' element={<Userslist />} />
-
 					<Route path='/admin/orderslist' element={<Orderslist />} />
-
 					<Route path='/admin/pizzaslist' element={<Pizzaslist />} />
 					<Route
 						path='/admin/editpizza/:pizzaid'
