@@ -17,7 +17,13 @@ export default function PizzaDisplay() {
 		dispatch(getAllPizzas());
 	}, [dispatch]);
 	return (
-		<div>
+		<Flex
+			display='flex'
+			flexDirection={'column'}
+			alignItems='center'
+			justifyContent='center'
+			width='full'
+		>
 			{loading ? (
 				<h1>Loading</h1>
 			) : error ? (
@@ -25,14 +31,23 @@ export default function PizzaDisplay() {
 			) : (
 				<>
 					<SimpleGrid
-						columns={3}
-						margin='50px '
-						spacing={6}
-						marginLeft='100px'
-						minChildWidth='410px'
+						columns={[1, 1, 2, 3]}
+						width='full'
+						margin={5}
+						alignItems={'center'}
+						justifyContent={'center'}
+						spacing={[5, 5, 10, 10]}
 					>
 						{pizzas.map((pizza) => {
-							return <Pizza key={pizza._id} pizza={pizza} />;
+							return (
+								<Flex
+									width={'full'}
+									alignItems={'center'}
+									justifyContent='center'
+								>
+									<Pizza key={pizza._id} pizza={pizza} />
+								</Flex>
+							);
 						})}
 					</SimpleGrid>
 					<Flex
@@ -65,6 +80,6 @@ export default function PizzaDisplay() {
 					</Flex>
 				</>
 			)}
-		</div>
+		</Flex>
 	);
 }
