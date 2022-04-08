@@ -8,6 +8,7 @@ import {
 	Text,
 	VStack,
 } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Typed from 'react-typed';
 import Navbar from '../../Components/Navbar/Navbar';
@@ -16,8 +17,8 @@ import './styles.module.css';
 const Main = () => {
 	const textLines = ['MORE CHEESEE!!', 'MORE TOPPINGS!!', 'MORE FUNNN!!'];
 
-	const user = JSON.parse(localStorage.getItem('user'));
-	console.log(user);
+	const userstate = useSelector((state) => state.setUserDataReducer);
+	const user = userstate.userData;
 	return (
 		<>
 			<Navbar />

@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux';
 import './styles.css';
 export default function Navbar() {
 	const cartstate = useSelector((state) => state.cartReducer);
-	const user = JSON.parse(localStorage.getItem('user'));
+	const userstate = useSelector((state) => state.setUserDataReducer);
+	const user = userstate.userData;
 
 	function handleLogout() {
-		localStorage.removeItem('user');
 		localStorage.removeItem('cartItems');
 		localStorage.removeItem('token');
 		window.location.replace('/');
@@ -32,7 +32,7 @@ export default function Navbar() {
 				<div className='collapse navbar-collapse' id='navbarNav'>
 					<ul className='navbar-nav ms-auto'>
 						<li className='nav-item '>
-							{user?.email ? (
+							{user && user?.email ? (
 								<div className='dropdown '>
 									<a
 										className='btn btn-secondary dropdown-toggle custom-navbar nav-text'
@@ -44,7 +44,7 @@ export default function Navbar() {
 										}}
 										href
 									>
-										{user.firstName}
+										{user && user?.firstName}
 									</a>
 									<ul
 										className='dropdown-menu'
@@ -70,12 +70,6 @@ export default function Navbar() {
 									</ul>
 								</div>
 							) : (
-								// <text
-								// 	className='nav-link active '
-								// 	aria-current='page'
-								// >
-								// 	{user?.firstName}
-								// </text>
 								<a
 									className='nav-link active '
 									aria-current='page'
@@ -87,7 +81,7 @@ export default function Navbar() {
 						</li>
 						<li className='nav-item arrow '>
 							<a className='nav-link active' href='/cart'>
-								Cart : {cartstate.cartItems.length}
+								Cart : {cartstate?.cartItems?.length}
 							</a>
 						</li>
 					</ul>

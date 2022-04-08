@@ -26,7 +26,10 @@ import {
 	getPizzaByIdReducer,
 	updatePizzaReducer,
 } from './reducers/pizzaReducer';
-import { getAllUsersReducer } from './reducers/UsersReducer';
+import {
+	getAllUsersReducer,
+	setUserDataReducer,
+} from './reducers/UsersReducer';
 
 const finalReducer = combineReducers({
 	getAllPizzasReducer: getAllPizzasReducer,
@@ -49,6 +52,7 @@ const finalReducer = combineReducers({
 	addToppingReducer: addToppingReducer,
 	getToppingByIdReducer: getToppingByIdReducer,
 	updateToppingReducer: updateToppingReducer,
+	setUserDataReducer: setUserDataReducer,
 });
 
 const cartItems = localStorage.getItem('cartItems')
