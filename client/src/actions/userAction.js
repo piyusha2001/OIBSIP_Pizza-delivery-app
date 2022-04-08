@@ -13,3 +13,7 @@ export const getAllUsers = () => async (dispatch) => {
 		dispatch({ type: 'GET_ALL_USERS_FAILED', payload: error });
 	}
 };
+
+export const setUserData = (userData) => (dispatch) => {
+	dispatch({ type: 'SET_USER_DATA', payload: userData });
+};
