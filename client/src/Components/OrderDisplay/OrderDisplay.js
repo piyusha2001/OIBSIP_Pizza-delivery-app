@@ -88,38 +88,6 @@ export default function OrderDisplay(order) {
 						</span>
 					</Text>
 				</VStack>
-
-				{/* <VStack width='100%'>
-					<Text fontSize={'2xl'} fontWeight='bold'>
-						Items
-					</Text>
-					{order.order.orderItems.map((item) => {
-						return (
-							<Text fontSize='1xl'>
-								{item.name}[{item.varient}] * {item.quantity} =
-								{item.price}
-							</Text>
-						);
-					})}
-				</VStack>
-
-				<VStack width='100%'>
-					<Text fontSize={'2xl'} fontWeight='bold'>
-						Address
-					</Text>
-
-					<Text fontSize='1xl'>{order.order.shippingAddress}</Text>
-				</VStack>
-				<VStack width='100%'>
-					<Text fontSize={'2xl'} fontWeight='bold'>
-						Order Info
-					</Text>
-
-					<Text fontSize='1xl'>{order.order.shippingAddress}</Text>
-					<Text fontSize='1xl'>{order.order.shippingAddress}</Text>
-					<Text fontSize='1xl'>{order.order.shippingAddress}</Text>
-					<Text fontSize='1xl'>{order.order.shippingAddress}</Text>
-				</VStack> */}
 			</HStack>
 		</Box>
 	);
