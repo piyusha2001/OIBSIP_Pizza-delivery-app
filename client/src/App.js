@@ -37,14 +37,6 @@ function App() {
 
 	const dispatch = useDispatch();
 	useEffect(() => {
-		if (user) {
-			if (user?.role === 'admin') {
-				setIsAdmin(true);
-			}
-		}
-	}, [user]);
-
-	useEffect(() => {
 		let token = localStorage.getItem('token');
 		if (token) {
 			const url = 'http://localhost:8080/api/auth/jwt/verify';
@@ -56,7 +48,7 @@ function App() {
 				})
 				.then((res) => {
 					if (res.data.success) {
-						if (res?.data?.user?.role === 'admin') {
+						if (res?.data?.data?.role === 'admin') {
 							setIsAdmin(true);
 						}
 						if (res?.data?.userData) {
