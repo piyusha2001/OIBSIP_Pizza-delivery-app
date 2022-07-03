@@ -12,7 +12,7 @@ const EmailVerify = () => {
 	useEffect(() => {
 		return async () => {
 			if (id && token) {
-				const url = `http://localhost:8080/api/users/${id}/verify/${token}`;
+				const url = `https://pizza-app-backend12.herokuapp.com/api/users/${id}/verify/${token}`;
 				const { data } = await axios.get(url);
 				if (data?.success) {
 					alert(data?.message);

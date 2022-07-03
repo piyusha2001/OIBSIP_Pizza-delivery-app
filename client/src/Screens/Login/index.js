@@ -14,7 +14,7 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = 'http://localhost:8080/api/auth';
+			const url = 'https://pizza-app-backend12.herokuapp.com/api/auth';
 			const res = await axios.post(url, data);
 			localStorage.setItem('token', res?.data?.data);
 			if (res?.data?.user?.role === 'admin') {

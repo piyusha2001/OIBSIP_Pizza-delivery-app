@@ -5,7 +5,7 @@ export const getAllUsers = () => async (dispatch) => {
 
 	try {
 		const response = await axios.get(
-			'http://localhost:8080/api/users/getallusers',
+			'https://pizza-app-backend12.herokuapp.com/api/users/getallusers',
 		);
 		console.log(response);
 		dispatch({ type: 'GET_ALL_USERS_SUCCESS', payload: response.data });

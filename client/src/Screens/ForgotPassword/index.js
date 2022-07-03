@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './styles.module.css';
 
 export default function ForgotPassword() {
@@ -10,7 +10,7 @@ export default function ForgotPassword() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = `http://localhost:8080/api/password-reset`;
+			const url = `https://pizza-app-backend12.herokuapp.com/api/password-reset`;
 			const { data } = await axios.post(url, { email });
 			setMsg(data.message);
 			setError('');

@@ -39,7 +39,8 @@ function App() {
 	useEffect(() => {
 		let token = localStorage.getItem('token');
 		if (token) {
-			const url = 'http://localhost:8080/api/auth/jwt/verify';
+			const url =
+				'https://pizza-app-backend12.herokuapp.com/api/auth/jwt/verify';
 			axios
 				.get(url, {
 					params: {
