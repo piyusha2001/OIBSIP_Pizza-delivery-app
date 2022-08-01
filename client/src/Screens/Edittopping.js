@@ -17,14 +17,10 @@ import AdminScreen from './AdminScreen/AdminScreen';
 export default function Edittopping() {
 	const { toppingid } = useParams();
 	const dispatch = useDispatch();
-	const gettoppingbyidstate = useSelector(
-		(state) => state.getToppingByIdReducer,
-	);
+	const gettoppingbyidstate = useSelector((state) => state.getToppingById);
 	const { topping, error, loading } = gettoppingbyidstate;
 
-	const updatetoppingstate = useSelector(
-		(state) => state.updateToppingReducer,
-	);
+	const updatetoppingstate = useSelector((state) => state.updateTopping);
 	const { updatesuccess, updateloading, updateerror } = updatetoppingstate;
 	const [toppingName, setToppingName] = useState('');
 	const [toppingStock, setToppingStock] = useState();

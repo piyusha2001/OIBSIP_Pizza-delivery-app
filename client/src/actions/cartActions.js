@@ -36,7 +36,7 @@ export const addToCart = (pizza, quantity, varient) => (dispatch, getState) => {
 			});
 		} else {
 			dispatch({ type: 'ADD_TO_CART', payload: cartItem });
-			const cartItems = getState().cartReducer.cartItems;
+			const cartItems = getState().cart.cartItems;
 			localStorage.setItem('cartItems', JSON.stringify(cartItems));
 		}
 	}
@@ -44,6 +44,6 @@ export const addToCart = (pizza, quantity, varient) => (dispatch, getState) => {
 
 export const deleteFromCart = (pizza) => (dispatch, getState) => {
 	dispatch({ type: 'DELETE_FROM_CART', payload: pizza });
-	const cartItems = getState().cartReducer.cartItems;
+	const cartItems = getState().cart.cartItems;
 	localStorage.setItem('cartItems', JSON.stringify(cartItems));
 };

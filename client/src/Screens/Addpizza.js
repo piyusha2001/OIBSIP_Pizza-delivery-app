@@ -26,7 +26,7 @@ export default function Addpizza() {
 	//category
 	const [category, setCategory] = useState('');
 	const dispatch = useDispatch();
-	const addpizzastate = useSelector((state) => state.addPizzaReducer);
+	const addpizzastate = useSelector((state) => state.addPizza);
 
 	const { success, error, loading } = addpizzastate;
 

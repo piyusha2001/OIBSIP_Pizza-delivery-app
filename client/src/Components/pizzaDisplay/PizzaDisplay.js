@@ -9,7 +9,7 @@ import './styles.css';
 export default function PizzaDisplay() {
 	const dispatch = useDispatch();
 
-	const pizzastate = useSelector((state) => state.getAllPizzasReducer);
+	const pizzastate = useSelector((state) => state.getAllPizzas);
 
 	const { pizzas, error, loading } = pizzastate;
 

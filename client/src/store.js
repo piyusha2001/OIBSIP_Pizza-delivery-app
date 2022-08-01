@@ -32,27 +32,27 @@ import {
 } from './reducers/UsersReducer';
 
 const finalReducer = combineReducers({
-	getAllPizzasReducer: getAllPizzasReducer,
-	cartReducer: cartReducer,
-	getAllCheeseReducer: getAllCheeseReducer,
-	getAllBasesReducer: getAllBasesReducer,
-	getAllSaucesReducer: getAllSaucesReducer,
-	getAllToppingsReducer: getAllToppingsReducer,
-	placeOrderReducer: placeOrderReducer,
-	getUserOrdersReducer: getUserOrdersReducer,
-	addPizzaReducer: addPizzaReducer,
-	getPizzaByIdReducer: getPizzaByIdReducer,
-	updatePizzaReducer: updatePizzaReducer,
-	getAllOrdersReducer: getAllOrdersReducer,
-	deliverOrderReducer: deliverOrderReducer,
-	getAllUsersReducer: getAllUsersReducer,
-	addBaseReducer: addBaseReducer,
-	getBaseByIdReducer: getBaseByIdReducer,
-	updateBaseReducer: updateBaseReducer,
-	addToppingReducer: addToppingReducer,
-	getToppingByIdReducer: getToppingByIdReducer,
-	updateToppingReducer: updateToppingReducer,
-	setUserDataReducer: setUserDataReducer,
+	getAllPizzas: getAllPizzasReducer,
+	cart: cartReducer,
+	getAllCheese: getAllCheeseReducer,
+	getAllBases: getAllBasesReducer,
+	getAllSauces: getAllSaucesReducer,
+	getAllToppings: getAllToppingsReducer,
+	placeOrder: placeOrderReducer,
+	getUserOrders: getUserOrdersReducer,
+	addPizza: addPizzaReducer,
+	getPizzaById: getPizzaByIdReducer,
+	updatePizza: updatePizzaReducer,
+	getAllOrders: getAllOrdersReducer,
+	deliverOrder: deliverOrderReducer,
+	getAllUsers: getAllUsersReducer,
+	addBase: addBaseReducer,
+	getBaseById: getBaseByIdReducer,
+	updateBase: updateBaseReducer,
+	addTopping: addToppingReducer,
+	getToppingById: getToppingByIdReducer,
+	updateTopping: updateToppingReducer,
+	setUserData: setUserDataReducer,
 });
 
 const cartItems = localStorage.getItem('cartItems')
@@ -60,8 +60,8 @@ const cartItems = localStorage.getItem('cartItems')
 	: [];
 
 const initialState = {
-	cartReducer: {
-		cartItems: cartItems,
+	cart: {
+		cartItems,
 	},
 };
 const composeEnhancers = composeWithDevTools({});

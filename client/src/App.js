@@ -32,7 +32,7 @@ import Userslist from './Screens/Userslist.js';
 function App() {
 	const [isAdmin, setIsAdmin] = useState(false);
 
-	const userstate = useSelector((state) => state.setUserDataReducer);
+	const userstate = useSelector((state) => state.setUserData);
 	const user = userstate.userData;
 
 	const dispatch = useDispatch();
@@ -65,33 +65,28 @@ function App() {
 
 	return (
 		<Routes>
-			<Route path='/' exact element={<Main />} />
-			<Route path='*' exact element={<Main />} />
-			<Route path='/signup' exact element={<Signup />} />
-			<Route path='/login' exact element={<Login />} />
+			<Route path='/signup' element={<Signup />} />
+			<Route path='/login' element={<Login />} />
 			<Route path='/users/:id/verify/:token' element={<EmailVerify />} />
 			<Route path='/forgot-password' element={<ForgotPassword />} />
 			<Route
 				path='/password-reset/:id/:token'
 				element={<PasswordReset />}
 			/>
+
 			{user?.role && (
 				<>
-					<Route path='/home' exact element={<Home />} />
-					<Route path='/cart' exact element={<CartScreen />} />
-					<Route path='/myoPizza' exact element={<MyoPizza />} />
-					<Route path='/myorders' exact element={<OrderScreen />} />
+					<Route path='/home' element={<Home />} />
+					<Route path='/cart' element={<CartScreen />} />
+					<Route path='/myoPizza' element={<MyoPizza />} />
+					<Route path='/myorders' element={<OrderScreen />} />
 				</>
 			)}
 
 			{isAdmin && (
 				<>
-					<Route path='/admin' exact element={<AdminScreen />} />
-					<Route
-						path='/admin/addpizzas'
-						exact
-						element={<Addpizza />}
-					/>
+					<Route path='/admin' element={<AdminScreen />} />
+					<Route path='/admin/addpizzas' element={<Addpizza />} />
 					<Route path='/admin/userslist' element={<Userslist />} />
 					<Route path='/admin/orderslist' element={<Orderslist />} />
 					<Route path='/admin/pizzaslist' element={<Pizzaslist />} />
@@ -116,6 +111,7 @@ function App() {
 					/>
 				</>
 			)}
+			<Route path='*' element={<Main />} />
 		</Routes>
 	);
 }

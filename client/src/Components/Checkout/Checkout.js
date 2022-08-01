@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { placeOrder } from '../../actions/orderAction';
 
 export default function Checkout({ subtotal }) {
-	const orderstate = useSelector((state) => state.placeOrderReducer);
+	const orderstate = useSelector((state) => state.placeOrder);
 	const { loading, error, success } = orderstate;
 	const dispatch = useDispatch();
 	//if success is true, then redirect to orders page and clear the cart

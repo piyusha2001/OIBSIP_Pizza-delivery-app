@@ -23,7 +23,7 @@ export default function Orderslist() {
 	useEffect(() => {
 		dispatch(getAllOrders());
 	}, [dispatch]);
-	const orderstate = useSelector((state) => state.getAllOrdersReducer);
+	const orderstate = useSelector((state) => state.getAllOrders);
 
 	const { orders, error, loading } = orderstate;
 

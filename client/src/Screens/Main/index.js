@@ -17,7 +17,7 @@ import './styles.module.css';
 const Main = () => {
 	const textLines = ['MORE CHEESEE!!', 'MORE TOPPINGS!!', 'MORE FUNNN!!'];
 
-	const userstate = useSelector((state) => state.setUserDataReducer);
+	const userstate = useSelector((state) => state.setUserData);
 	const user = userstate.userData;
 	return (
 		<>

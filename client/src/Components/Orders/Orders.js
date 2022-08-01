@@ -13,7 +13,7 @@ import OrderDisplay from '../OrderDisplay/OrderDisplay';
 
 export default function Orders() {
 	const dispatch = useDispatch();
-	const orderstate = useSelector((state) => state.getUserOrdersReducer);
+	const orderstate = useSelector((state) => state.getUserOrders);
 	const { loading, error, orders } = orderstate;
 
 	useEffect(() => {

@@ -26,10 +26,10 @@ import {
 export default function MyoPizzaDisplay() {
 	const { Option } = Select;
 	const dispatch = useDispatch();
-	const basestate = useSelector((state) => state.getAllBasesReducer);
-	const saucestate = useSelector((state) => state.getAllSaucesReducer);
-	const toppingstate = useSelector((state) => state.getAllToppingsReducer);
-	const cheesestate = useSelector((state) => state.getAllCheeseReducer);
+	const basestate = useSelector((state) => state.getAllBases);
+	const saucestate = useSelector((state) => state.getAllSauces);
+	const toppingstate = useSelector((state) => state.getAllToppings);
+	const cheesestate = useSelector((state) => state.getAllCheese);
 	const [cheesee, setCheese] = useState('');
 	const [tags, setTags] = useState([]);
 	const [sauce, setSauce] = useState('');

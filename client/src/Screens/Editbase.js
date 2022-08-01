@@ -17,8 +17,8 @@ import AdminScreen from './AdminScreen/AdminScreen';
 export default function Editbase() {
 	const { baseid } = useParams();
 	const dispatch = useDispatch();
-	const updatebasestate = useSelector((state) => state.updateBaseReducer);
-	const getbasebyidstate = useSelector((state) => state.getBaseByIdReducer);
+	const updatebasestate = useSelector((state) => state.updateBase);
+	const getbasebyidstate = useSelector((state) => state.getBaseById);
 	const { base, error, loading } = getbasebyidstate;
 	const { updatesuccess, updateloading, updateerror } = updatebasestate;
 

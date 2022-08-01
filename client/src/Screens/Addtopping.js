@@ -17,7 +17,7 @@ export default function Addtopping() {
 	const dispatch = useDispatch();
 	const [toppingName, setToppingName] = useState('');
 	const [toppingStock, setToppingStock] = useState();
-	const addToppingState = useSelector((state) => state.addToppingReducer);
+	const addToppingState = useSelector((state) => state.addTopping);
 	const { success, error, loading } = addToppingState;
 
 	function formHandler(e) {

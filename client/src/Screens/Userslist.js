@@ -22,7 +22,7 @@ export default function Userslist() {
 	useEffect(() => {
 		dispatch(getAllUsers());
 	}, [dispatch]);
-	const userstate = useSelector((state) => state.getAllUsersReducer);
+	const userstate = useSelector((state) => state.getAllUsers);
 
 	const { users, error, loading } = userstate;
 

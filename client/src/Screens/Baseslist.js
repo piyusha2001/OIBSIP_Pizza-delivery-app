@@ -22,7 +22,7 @@ export default function Baseslist() {
 	useEffect(() => {
 		dispatch(getAllBases());
 	}, [dispatch]);
-	const basestate = useSelector((state) => state.getAllBasesReducer);
+	const basestate = useSelector((state) => state.getAllBases);
 
 	const { bases, loading } = basestate;
 	return (

@@ -15,7 +15,7 @@ import AdminScreen from './AdminScreen/AdminScreen';
 
 export default function Addbases() {
 	const dispatch = useDispatch();
-	const addbasestate = useSelector((state) => state.addBaseReducer);
+	const addbasestate = useSelector((state) => state.addBase);
 
 	const { success, error, loading } = addbasestate;
 	const [baseName, setBaseName] = useState('');

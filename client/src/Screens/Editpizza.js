@@ -16,8 +16,8 @@ import AdminScreen from './AdminScreen/AdminScreen';
 export default function Editpizza() {
 	const { pizzaid } = useParams();
 	const dispatch = useDispatch();
-	const updatepizzastate = useSelector((state) => state.updatePizzaReducer);
-	const getpizzabyidstate = useSelector((state) => state.getPizzaByIdReducer);
+	const updatepizzastate = useSelector((state) => state.updatePizza);
+	const getpizzabyidstate = useSelector((state) => state.getPizzaById);
 	const { pizza, error, loading } = getpizzabyidstate;
 	const { updatesuccess, updateloading, updateerror } = updatepizzastate;
 	useEffect(() => {

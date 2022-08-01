@@ -1,9 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './styles.css';
 export default function Navbar() {
-	const cartstate = useSelector((state) => state.cartReducer);
-	const userstate = useSelector((state) => state.setUserDataReducer);
+	const cartstate = useSelector((state) => state.cart);
+	const userstate = useSelector((state) => state.setUserData);
 	const user = userstate.userData;
 
 	function handleLogout() {
@@ -51,12 +52,12 @@ export default function Navbar() {
 										aria-labelledby='dropdownMenuButton1'
 									>
 										<li>
-											<a
+											<Link
+												to='/myorders'
 												className='dropdown-item'
-												href='/myorders'
 											>
 												My Orders
-											</a>
+											</Link>
 										</li>
 										<li>
 											<a
@@ -80,9 +81,9 @@ export default function Navbar() {
 							)}
 						</li>
 						<li className='nav-item arrow '>
-							<a className='nav-link active' href='/cart'>
+							<Link to='/cart' className='nav-link active'>
 								Cart : {cartstate?.cartItems?.length}
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</div>

@@ -22,7 +22,7 @@ export default function Toppingslist() {
 	useEffect(() => {
 		dispatch(getAllToppings());
 	}, [dispatch]);
-	const toppingstate = useSelector((state) => state.getAllToppingsReducer);
+	const toppingstate = useSelector((state) => state.getAllToppings);
 
 	const { toppings, loading } = toppingstate;
 	return (

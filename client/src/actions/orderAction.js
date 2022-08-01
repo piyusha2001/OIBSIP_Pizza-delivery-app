@@ -2,8 +2,8 @@ import axios from 'axios';
 
 export const placeOrder = (subtotal) => async (dispatch, getState) => {
 	dispatch({ type: 'PLACE_ORDER_ REQUEST ' });
-	const cartItems = getState().cartReducer.cartItems;
-	const user = getState().setUserDataReducer.userData;
+	const cartItems = getState().cart.cartItems;
+	const user = getState().setUserData.userData;
 	console.log(user);
 
 	const initPayment = (data) => {
@@ -79,7 +79,7 @@ export const placeOrder = (subtotal) => async (dispatch, getState) => {
 
 export const getUserOrders = () => async (dispatch, getState) => {
 	dispatch({ type: 'GET_USER_ORDERS_REQUEST' });
-	const user = getState().setUserDataReducer.userData;
+	const user = getState().setUserData.userData;
 
 	try {
 		const response = await axios.post(

@@ -21,7 +21,7 @@ import AdminScreen from './AdminScreen/AdminScreen';
 export default function Pizzaslist() {
 	const dispatch = useDispatch();
 
-	const pizzastate = useSelector((state) => state.getAllPizzasReducer);
+	const pizzastate = useSelector((state) => state.getAllPizzas);
 
 	const { pizzas, error, loading } = pizzastate;
 

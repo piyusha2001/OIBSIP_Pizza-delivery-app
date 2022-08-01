@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import CartOrders from '../CartOrders/CartOrders';
 import Checkout from '../Checkout/Checkout';
 export default function CartDisplay() {
-	const cartstate = useSelector((state) => state.cartReducer);
+	const cartstate = useSelector((state) => state.cart);
 	const cartItems = cartstate.cartItems;
 	var subtotal = cartItems.reduce((x, item) => x + item.price, 0);
 	return (
