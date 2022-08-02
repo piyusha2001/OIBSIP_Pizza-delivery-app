@@ -8,7 +8,7 @@ export const placeOrder = (subtotal) => async (dispatch, getState) => {
 
 	const initPayment = (data) => {
 		const options = {
-			key: 'rzp_test_ZHZ9jDKgl6tz9U',
+			key: process.env.KEY_ID,
 			amount: data.amount,
 			currency: data.currency,
 			description: 'Test Transaction',
