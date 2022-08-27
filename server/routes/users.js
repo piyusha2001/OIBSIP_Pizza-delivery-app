@@ -28,10 +28,15 @@ router.post('/', async (req, res) => {
 		}).save();
 
 		const url = `${process.env.BASE_URL}users/${user.id}/verify/${token.token}`;
-		await sendEmail(user.email, 'Verify Email', url);
+		await sendEmail(
+			user.email,
+			'Verify Email',
+			`Verify your account by clicking on this link --> ${url} . Thank you !`,
+		);
 
 		res.status(201).send({
-			message: 'An Email sent to your account please verify',
+			message:
+				'An Email sent to your account please verify ! Check in spam folder too',
 		});
 	} catch (error) {
 		res.status(500).send({ message: 'Internal Server Error' });
